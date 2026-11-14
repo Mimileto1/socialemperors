@@ -15,6 +15,7 @@ from get_game_config import get_game_config, patch_game_config
 print (" [+] Loading players...")
 from get_player_info import get_player_info, get_neighbor_info
 from sessions import load_saved_villages, all_saves_userid, all_saves_info, save_info, new_village, fb_friends_str
+from accounts import create_user, verify_user, attach_village
 load_saved_villages()
 
 print (" [+] Loading server...")
@@ -45,19 +46,51 @@ def login():
     # Log out previous session
     session.pop('USERID', default=None)
     session.pop('GAMEVERSION', default=None)
+    session.pop('ACCOUNT', default=None)
     # Reload saves. Allows saves modification without server reset
     load_saved_villages()
-    # If logging in, set session USERID, and go to play
+    # If logging in with account, verify and set session USERID, and go to play
     if request.method == 'POST':
-        session['USERID'] = request.form['USERID']
-        session['GAMEVERSION'] = request.form['GAMEVERSION']
-        print("[LOGIN] USERID:", request.form['USERID'])
-        print("[LOGIN] GAMEVERSION:", request.form['GAMEVERSION'])
+        username = request.form.get('username', '')
+        password = request.form.get('password', '')
+        vid = verify_user(username, password)
+        if not vid:
+            return render_template("login.html", error="Usuario o contrasena incorrectos.", version=version_name)
+        session['ACCOUNT'] = username.strip().lower()
+        session['USERID'] = vid
+        session['GAMEVERSION'] = request.form.get('GAMEVERSION', 'SocialEmpires0926bsec.swf')
+        print("[LOGIN] ACCOUNT:", session['ACCOUNT'], "USERID:", vid)
         return redirect("/play.html")
     # Login page
     if request.method == 'GET':
-        saves_info = all_saves_info()
-        return render_template("login.html", saves_info=saves_info, version=version_name)
+        return render_template("login.html", error=request.args.get('error'), version=version_name)
+
+@app.route("/signup", methods=['GET', 'POST'])
+def signup():
+    session.pop('USERID', default=None)
+    session.pop('GAMEVERSION', default=None)
+    session.pop('ACCOUNT', default=None)
+    load_saved_villages()
+    if request.method == 'GET':
+        return render_template("signup.html", version=version_name)
+    username = request.form.get('username', '').strip().lower()
+    password = request.form.get('password', '')
+    confirm = request.form.get('confirm', '')
+    if not username.isalnum() or not (3 <= len(username) <= 20):
+        return render_template("signup.html", error="El usuario debe tener de 3 a 20 letras o numeros.", version=version_name)
+    if len(password) < 6:
+        return render_template("signup.html", error="La contrasena debe tener al menos 6 caracteres.", version=version_name)
+    if password != confirm:
+        return render_template("signup.html", error="Las contrasenas no coinciden.", version=version_name)
+    if not create_user(username, password):
+        return render_template("signup.html", error="Ese usuario ya existe.", version=version_name)
+    vid = new_village()
+    attach_village(username, vid)
+    session['ACCOUNT'] = username
+    session['USERID'] = vid
+    session['GAMEVERSION'] = 'SocialEmpires0926bsec.swf'
+    print("[SIGNUP] ACCOUNT:", username, "USERID:", vid)
+    return redirect("/play.html")
 
 @app.route("/play.html")
 def play():
@@ -98,7 +131,11 @@ def ruffle():
 
 @app.route("/new.html")
 def new():
-    session['USERID'] = new_village()
+    if not session.get('ACCOUNT'):
+        return redirect("/")
+    vid = new_village()
+    attach_village(session['ACCOUNT'], vid)
+    session['USERID'] = vid
     session['GAMEVERSION'] = "SocialEmpires0926bsec.swf"
     return redirect("play.html")
 
