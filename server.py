@@ -16,6 +16,7 @@ print (" [+] Loading players...")
 from get_player_info import get_player_info, get_neighbor_info
 from sessions import load_saved_villages, all_saves_userid, all_saves_info, save_info, new_village, fb_friends_str
 from accounts import create_user, verify_user, attach_village
+import db as _db
 load_saved_villages()
 
 print (" [+] Loading server...")
@@ -47,6 +48,7 @@ def login():
     session.pop('USERID', default=None)
     session.pop('GAMEVERSION', default=None)
     session.pop('ACCOUNT', default=None)
+    _db.pull_villages()
     # Reload saves. Allows saves modification without server reset
     load_saved_villages()
     # If logging in with account, verify and set session USERID, and go to play
