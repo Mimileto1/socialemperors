@@ -150,7 +150,7 @@ def neighbor_session(USERID: str) -> dict:
         return __villages[USERID]
 
 def fb_friends_str(USERID: str) -> list:
-    DELETE_ME = [{"uid": "1111", "pic_square":"http://127.0.0.1:5050/img/profile/Paladin_Justiciero.jpg"},
+    DELETE_ME = [{"uid": "1111", "pic_square":"img/profile/Paladin_Justiciero.jpg"},
         {"uid": "aa_002", "pic_square":"/1025.png"}]
     friends = []
     # static villages
