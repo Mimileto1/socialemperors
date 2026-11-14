@@ -27,7 +27,7 @@ from constants import Constant
 from quests import get_quest_map
 from bundle import ASSETS_DIR, STUB_DIR, TEMPLATES_DIR, BASE_DIR
 
-host = '127.0.0.1'
+host = '0.0.0.0' if os.environ.get('PORT') else '127.0.0.1'
 port = 5050
 
 app = Flask(__name__, template_folder=TEMPLATES_DIR)
@@ -304,4 +304,4 @@ print (" [+] Running server...")
 
 if __name__ == '__main__':
     app.secret_key = 'SECRET_KEY'
-    app.run(host=host, port=port, debug=False)
+    app.run(host=host, port=int(os.environ.get('PORT', port)), debug=False)
