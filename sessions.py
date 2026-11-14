@@ -246,3 +246,9 @@ def save_session(USERID: str):
     with open(os.path.join(SAVES_DIR, file), 'w') as f:
         json.dump(village, f, indent=4)
     print("Done.")
+    # Persistir en Supabase (se_villages) - perfiles que sobreviven a redeploy
+    try:
+        import db as _db
+        _db.push_village(USERID, village)
+    except Exception as _e:
+        print("[DB] push error:", _e)
