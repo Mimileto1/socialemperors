@@ -1,61 +1,107 @@
-import json
 import os
 import threading
 
+import requests
 from werkzeug.security import generate_password_hash, check_password_hash
 
-_BASE = os.path.dirname(os.path.abspath(__file__))
-_PATH = os.path.join(_BASE, "accounts.json")
+URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
+KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 _LOCK = threading.Lock()
 
 
-def _load():
-    try:
-        with open(_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {}
+def enabled():
+    return bool(URL and KEY)
 
 
-def _save(data):
-    tmp = _PATH + ".tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    os.replace(tmp, _PATH)
+def _headers():
+    return {
+        "apikey": KEY,
+        "Authorization": "Bearer " + KEY,
+        "Content-Type": "application/json",
+    }
+
+
+def _table():
+    return URL + "/rest/v1/se_accounts"
 
 
 def create_user(username, password):
     username = username.strip().lower()
     with _LOCK:
-        data = _load()
-        if username in data:
+        try:
+            r = requests.get(
+                _table() + "?username=eq." + username + "&select=username",
+                headers=_headers(),
+                timeout=15,
+            )
+            if r.status_code >= 400:
+                print("[DB] create check HTTP", r.status_code)
+                return False
+            if r.json():
+                return False
+            resp = requests.post(
+                _table(),
+                headers=_headers(),
+                json={
+                    "username": username,
+                    "pw_hash": generate_password_hash(password),
+                    "villages": [],
+                },
+                timeout=15,
+            )
+            if resp.status_code >= 400:
+                print("[DB] create HTTP", resp.status_code, resp.text[:200])
+                return False
+            return True
+        except Exception as e:
+            print("[DB] create error:", e)
             return False
-        data[username] = {"pw": generate_password_hash(password), "villages": []}
-        _save(data)
-        return True
 
 
 def verify_user(username, password):
     username = username.strip().lower()
-    with _LOCK:
-        data = _load()
-        entry = data.get(username)
-        if not entry:
+    try:
+        r = requests.get(
+            _table() + "?username=eq." + username + "&select=pw_hash,villages",
+            headers=_headers(),
+            timeout=15,
+        )
+        if r.status_code >= 400:
+            print("[DB] verify HTTP", r.status_code)
             return None
-        if not check_password_hash(entry.get("pw", ""), password):
+        rows = r.json()
+        if not rows:
             return None
-        villages = entry.get("villages") or []
+        row = rows[0]
+        if not check_password_hash(row.get("pw_hash") or "", password):
+            return None
+        villages = row.get("villages") or []
         return villages[0] if villages else None
+    except Exception as e:
+        print("[DB] verify error:", e)
+        return None
 
 
 def attach_village(username, village_id):
     username = username.strip().lower()
-    with _LOCK:
-        data = _load()
-        entry = data.get(username)
-        if not entry:
+    try:
+        r = requests.get(
+            _table() + "?username=eq." + username + "&select=villages",
+            headers=_headers(),
+            timeout=15,
+        )
+        if r.status_code >= 400 or not r.json():
             return False
-        if village_id not in entry.setdefault("villages", []):
-            entry["villages"].append(village_id)
-        _save(data)
-        return True
+        villages = r.json()[0].get("villages") or []
+        if village_id not in villages:
+            villages.append(village_id)
+        resp = requests.patch(
+            _table() + "?username=eq." + username,
+            headers=_headers(),
+            json={"villages": villages},
+            timeout=15,
+        )
+        return resp.status_code < 400
+    except Exception as e:
+        print("[DB] attach error:", e)
+        return False
