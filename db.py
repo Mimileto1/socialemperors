@@ -21,52 +21,46 @@ def _headers():
     }
 
 
-def push_village(userid, data):
-    """Sube/actualiza una aldea en Supabase (se_villages)."""
-    if not enabled() or not userid or data is None:
-        return False
-    try:
-        resp = requests.put(
-            URL + "/rest/v1/se_villages",
-            headers=_headers(),
-            json={"userid": str(userid), "data": data},
-            timeout=15,
-        )
-        if resp.status_code >= 400:
-            print("[DB] push HTTP", resp.status_code, resp.text[:200])
-            return False
-        return True
-    except Exception as e:
-        print("[DB] push error:", e)
-        return False
-
-
 def pull_villages():
-    """Descarga todas las aldeas de Supabase al disco local (saves/)."""
+    """Import historical saves while leaving newer local copies intact."""
     if not enabled():
-        return 0
-    try:
-        resp = requests.get(
-            URL + "/rest/v1/se_villages?select=userid,data",
-            headers=_headers(),
+        return
+    import re
+    from pathlib import Path
+    from tempfile import NamedTemporaryFile
+
+    directory = Path(SAVES_DIR)
+    directory.mkdir(parents=True, exist_ok=True)
+    offset = 0
+    while True:
+        response = requests.get(
+            URL + "/rest/v1/se_villages", headers=_headers(),
+            params={"select": "userid,data", "order": "userid.asc", "offset": offset, "limit": 100},
             timeout=25,
         )
-        if resp.status_code >= 400:
-            print("[DB] pull HTTP", resp.status_code, resp.text[:200])
-            return 0
-        rows = resp.json()
-        os.makedirs(SAVES_DIR, exist_ok=True)
-        n = 0
+        response.raise_for_status()
+        rows = response.json()
+        if not rows:
+            return
         for row in rows:
-            vid = str(row.get("userid") or "")
-            data = row.get("data")
-            if not vid or data is None:
+            save_id = str(row["userid"])
+            data = row["data"]
+            if not re.fullmatch(r"[a-zA-Z0-9_-]{1,64}", save_id) or not isinstance(data, dict):
                 continue
-            path = os.path.join(SAVES_DIR, vid + ".save.json")
-            with open(path, "w", encoding="utf-8") as f:
-                json.dump(data, f)
-            n += 1
-        return n
-    except Exception as e:
-        print("[DB] pull error:", e)
-        return 0
+            if str(data.get("playerInfo", {}).get("pid")) != save_id:
+                continue
+            target = directory / (save_id + ".save.json")
+            if target.exists():
+                continue
+            temporary = None
+            try:
+                with NamedTemporaryFile(dir=directory, mode="w", encoding="utf-8", delete=False) as stream:
+                    temporary = Path(stream.name)
+                    json.dump(data, stream)
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                temporary.replace(target)
+            finally:
+                if temporary:
+                    temporary.unlink(missing_ok=True)
+        offset += len(rows)

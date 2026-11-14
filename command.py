@@ -1,4 +1,5 @@
 import json
+from copy import deepcopy
 
 from sessions import session, save_session
 from get_game_config import get_game_config, get_level_from_xp, get_name_from_item_id, get_attribute_from_mission_id, get_xp_from_level, get_attribute_from_item_id, get_item_from_subcat_functional
@@ -24,11 +25,19 @@ def command(USERID, data):
     publishActions = data["publishActions"]
     commands = data["commands"]
     
-    for i, comm in enumerate(commands):
-        cmd = comm["cmd"]
-        args = comm["args"]
-        do_command(USERID, cmd, args)
-    save_session(USERID) # Save session
+    village = session(USERID)
+    previous = deepcopy(village)
+    try:
+        for i, comm in enumerate(commands):
+            cmd = comm["cmd"]
+            args = comm["args"]
+            do_command(USERID, cmd, args)
+        save_session(USERID) # Save session
+    except Exception:
+        village.clear()
+        village.update(previous)
+        raise
+
 
 def do_command(USERID, cmd, args):
     save = session(USERID)

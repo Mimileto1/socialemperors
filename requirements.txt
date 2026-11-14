@@ -1,3 +1,4 @@
 flask<2.3
 jsonpatch
 requests
+psycopg[binary]>=3.2,<4

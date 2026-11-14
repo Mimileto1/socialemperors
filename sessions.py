@@ -1,4 +1,6 @@
 import json
+import durable
+import tempfile
 import os
 import copy
 import uuid
@@ -47,7 +49,7 @@ def load_saved_villages():
     if not os.path.exists(SAVES_DIR):
         try:
             print(f"Creating '{SAVES_DIR}' folder...")
-            os.mkdir(SAVES_DIR)
+            os.makedirs(SAVES_DIR, exist_ok=True)
         except:
             print(f"Could not create '{SAVES_DIR}' folder.")
             exit(1)
@@ -69,13 +71,21 @@ def load_saved_villages():
         else:
             __villages[str(USERID)] = village
             print("Ok.")
+    if durable.DATABASE_URL:
+        for name, village in durable.load_files().items():
+            if name.endswith(".save.json") and is_valid_village(village):
+                __saves[str(village["playerInfo"]["pid"])] = village
+
     # Saves in /saves
     for file in os.listdir(SAVES_DIR):
         if not file.endswith(".save.json"):
             continue
+        if not file.endswith(".save.json"):
+            continue
         print(f" * Loading save at {file}... ", end='')
         try:
-            save = json.load(open(os.path.join(SAVES_DIR, file)))
+            with open(os.path.join(SAVES_DIR, file), encoding='utf-8') as stream:
+                save = json.load(stream)
         except json.decoder.JSONDecodeError as e:
             print("Corrupted JSON.")
             continue
@@ -88,6 +98,8 @@ def load_saved_villages():
         except:
             map_name = '?'
         print(f"({map_name}) Ok.")
+        if str(USERID) in __saves:
+            continue
         __saves[str(USERID)] = save
         modified = migrate_loaded_save(save) # check save version for migration
         if modified:
@@ -110,7 +122,11 @@ def new_village() -> str:
     # Memory saves
     __saves[USERID] = village
     # Generate save file
-    save_session(USERID)
+    try:
+        save_session(USERID)
+    except OSError:
+        del __saves[USERID]
+        raise
     print("Done.")
     return USERID
 
@@ -234,21 +250,32 @@ def is_valid_village(save: dict):
 
 # Persistency
 
-def backup_session(USERID: str):
-    # TODO 
-    return
-
 def save_session(USERID: str):
-    # TODO 
     file = f"{USERID}.save.json"
     print(f" * Saving village at {file}... ", end='')
     village = session(USERID)
-    with open(os.path.join(SAVES_DIR, file), 'w') as f:
-        json.dump(village, f, indent=4)
-    print("Done.")
-    # Persistir en Supabase (se_villages) - perfiles que sobreviven a redeploy
+    if village is None:
+        raise KeyError(f"No save exists for player {USERID!r}")
+
+    if durable.DATABASE_URL:
+        durable.save_file(file, village)
+        return
+    os.makedirs(SAVES_DIR, exist_ok=True)
+    target = os.path.join(SAVES_DIR, file)
+    temp_path = None
     try:
-        import db as _db
-        _db.push_village(USERID, village)
-    except Exception as _e:
-        print("[DB] push error:", _e)
+        # Write beside the target so os.replace is atomic, including on Windows.
+        with tempfile.NamedTemporaryFile(
+            mode='w', encoding='utf-8', newline='\n', dir=SAVES_DIR,
+            prefix=f".{USERID}.", suffix='.tmp', delete=False
+        ) as f:
+            temp_path = f.name
+            json.dump(village, f, indent=4, ensure_ascii=False)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(temp_path, target)
+        temp_path = None
+    finally:
+        if temp_path and os.path.exists(temp_path):
+            os.remove(temp_path)
+    print("Done.")

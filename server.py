@@ -14,20 +14,22 @@ from get_game_config import get_game_config, patch_game_config
 
 print (" [+] Loading players...")
 from get_player_info import get_player_info, get_neighbor_info
-from sessions import load_saved_villages, all_saves_userid, all_saves_info, save_info, new_village, fb_friends_str
-from accounts import create_user, verify_user, attach_village
+from sessions import load_saved_villages, all_saves_userid, save_info, new_village, fb_friends_str
+import accounts as legacy_accounts
 import db as _db
+_db.pull_villages()
 load_saved_villages()
 
 print (" [+] Loading server...")
-from flask import Flask, render_template, send_from_directory, request, redirect, session
+from game_accounts import install_accounts
+from flask import Flask, abort, g, render_template, send_from_directory, request, redirect
 from flask.debughelpers import attach_enctype_error_multidict
 from command import command
 from engine import timestamp_now
 from version import version_name
 from constants import Constant
 from quests import get_quest_map
-from bundle import ASSETS_DIR, STUB_DIR, TEMPLATES_DIR, BASE_DIR
+from bundle import ASSETS_DIR, STUB_DIR, TEMPLATES_DIR, BASE_DIR, DATA_DIR
 
 host = '0.0.0.0' if os.environ.get('PORT') else '127.0.0.1'
 port = 5050
@@ -42,104 +44,43 @@ print (" [+] Configuring server routes...")
 
 ## PAGES AND RESOURCES
 
-@app.route("/", methods=['GET', 'POST'])
-def login():
-    # Log out previous session
-    session.pop('USERID', default=None)
-    session.pop('GAMEVERSION', default=None)
-    session.pop('ACCOUNT', default=None)
-    _db.pull_villages()
-    # Reload saves. Allows saves modification without server reset
-    load_saved_villages()
-    # If logging in with account, verify and set session USERID, and go to play
-    if request.method == 'POST':
-        username = request.form.get('username', '')
-        password = request.form.get('password', '')
-        vid = verify_user(username, password)
-        if not vid:
-            return render_template("login.html", error="Usuario o contrasena incorrectos.", version=version_name)
-        session['ACCOUNT'] = username.strip().lower()
-        session['USERID'] = vid
-        session['GAMEVERSION'] = request.form.get('GAMEVERSION', 'SocialEmpires0926bsec.swf')
-        print("[LOGIN] ACCOUNT:", session['ACCOUNT'], "USERID:", vid)
-        return redirect("/play.html")
-    # Login page
-    if request.method == 'GET':
-        return render_template("login.html", error=request.args.get('error'), version=version_name)
+current_save, protect_payload, game_lock = install_accounts(
+    app, data_dir=DATA_DIR, slug="social-empires", title="Social Empires", theme="empires",
+    play="/ruffle.html", create_save=lambda username: new_village(), legacy_accounts=legacy_accounts if legacy_accounts.enabled() else None, save_exists=lambda value: value in all_saves_userid(),
+)
 
-@app.route("/signup", methods=['GET', 'POST'])
-def signup():
-    session.pop('USERID', default=None)
-    session.pop('GAMEVERSION', default=None)
-    session.pop('ACCOUNT', default=None)
-    load_saved_villages()
-    if request.method == 'GET':
-        return render_template("signup.html", version=version_name)
-    username = request.form.get('username', '').strip().lower()
-    password = request.form.get('password', '')
-    confirm = request.form.get('confirm', '')
-    if not username.isalnum() or not (3 <= len(username) <= 20):
-        return render_template("signup.html", error="El usuario debe tener de 3 a 20 letras o numeros.", version=version_name)
-    if len(password) < 6:
-        return render_template("signup.html", error="La contrasena debe tener al menos 6 caracteres.", version=version_name)
-    if password != confirm:
-        return render_template("signup.html", error="Las contrasenas no coinciden.", version=version_name)
-    if not create_user(username, password):
-        return render_template("signup.html", error="Ese usuario ya existe.", version=version_name)
-    vid = new_village()
-    attach_village(username, vid)
-    session['ACCOUNT'] = username
-    session['USERID'] = vid
-    session['GAMEVERSION'] = 'SocialEmpires0926bsec.swf'
-    print("[SIGNUP] ACCOUNT:", username, "USERID:", vid)
-    return redirect("/play.html")
+
+@app.before_request
+def authorize_game_request():
+    if request.path.startswith("/dynamic.flash1.dev.socialpoint.es/appsfb/socialempiresdev/srvempires/"):
+        game_lock.acquire()
+        g.game_locked = True
+        save_id = protect_payload(request.values.get("USERID"))
+        if save_id not in all_saves_userid():
+            abort(503)
+
+
+@app.teardown_request
+def release_game_lock(error):
+    if g.pop("game_locked", False):
+        game_lock.release()
+
 
 @app.route("/play.html")
-def play():
-    print(session)
-
-    if 'USERID' not in session:
-        return redirect("/")
-    if 'GAMEVERSION' not in session:
-        return redirect("/")
-
-    if session['USERID'] not in all_saves_userid():
-        return redirect("/")
-    
-    USERID = session['USERID']
-    GAMEVERSION = session['GAMEVERSION']
-    print("[PLAY] USERID:", USERID)
-    print("[PLAY] GAMEVERSION:", GAMEVERSION)
-    return render_template("play.html", save_info=save_info(USERID), serverTime=timestamp_now(), friendsInfo=fb_friends_str(USERID), version=version_name, GAMEVERSION=GAMEVERSION, SERVERIP=host)
-
 @app.route("/ruffle.html")
-def ruffle():
-    print(session)
+def play():
+    user_id = current_save()
+    if user_id is None:
+        return redirect("/login")
+    with game_lock:
+        if user_id not in all_saves_userid():
+            abort(503, "La partida vinculada no está disponible.")
+        return render_template(
+            "ruffle.html", save_info=save_info(user_id), serverTime=timestamp_now(),
+            friendsInfo=fb_friends_str(user_id), version=version_name,
+            GAMEVERSION="SocialEmpires0926bsec.swf", SERVERIP=host, SERVERPORT=port,
+        )
 
-    if 'USERID' not in session:
-        return redirect("/")
-    if 'GAMEVERSION' not in session:
-        return redirect("/")
-
-    if session['USERID'] not in all_saves_userid():
-        return redirect("/")
-    
-    USERID = session['USERID']
-    GAMEVERSION = session['GAMEVERSION']
-    print("[RUFFLE] USERID:", USERID)
-    print("[RUFFLE] GAMEVERSION:", GAMEVERSION)
-    return render_template("ruffle.html", save_info=save_info(USERID), serverTime=timestamp_now(), version=version_name, GAMEVERSION=GAMEVERSION, SERVERIP=host)
-
-
-@app.route("/new.html")
-def new():
-    if not session.get('ACCOUNT'):
-        return redirect("/")
-    vid = new_village()
-    attach_village(session['ACCOUNT'], vid)
-    session['USERID'] = vid
-    session['GAMEVERSION'] = "SocialEmpires0926bsec.swf"
-    return redirect("play.html")
 
 @app.route("/crossdomain.xml")
 def crossdomain():
@@ -206,26 +147,26 @@ def track_game_status_response():
     installId = request.values['installId']
     user_id = request.values['user_id']
 
-    print(f"track_game_status: status={status}, installId={installId}, user_id={user_id}. --", request.values)
+    print(f"track_game_status: status={status}, installId={installId}, user_id={user_id}. --")
     return ("", 200)
 
 @app.route("/dynamic.flash1.dev.socialpoint.es/appsfb/socialempiresdev/srvempires/get_game_config.php", methods=['GET','POST'])
 def get_game_config_response():
     spdebug = None
 
-    USERID = request.values['USERID']
+    USERID = current_save()
     user_key = request.values['user_key']
     if 'spdebug' in request.values:
         spdebug = request.values['spdebug']
     language = request.values['language']
 
-    print(f"get_game_config: USERID: {USERID}. --", request.values)
+    print(f"get_game_config: USERID: {USERID}. --")
     return get_game_config()
 
 @app.route("/dynamic.flash1.dev.socialpoint.es/appsfb/socialempiresdev/srvempires/get_player_info.php", methods=['POST'])
 def get_player_info_response():
 
-    USERID = request.values['USERID']
+    USERID = current_save()
     user_key = request.values['user_key']
     spdebug = request.values['spdebug'] if 'spdebug' in request.values else None
     language = request.values['language']
@@ -234,7 +175,7 @@ def get_player_info_response():
     user = request.values['user'] if 'user' in request.values else None
     map = int(request.values['map']) if 'map' in request.values else None
 
-    print(f"get_player_info: USERID: {USERID}. user: {user} --", request.values)
+    print(f"get_player_info: USERID: {USERID}. user: {user} --")
 
     # Current Player
     if user is None:
@@ -255,7 +196,7 @@ def get_player_info_response():
 def sync_error_track_response():
     spdebug = None
 
-    USERID = request.values['USERID']
+    USERID = current_save()
     user_key = request.values['user_key']
     if 'spdebug' in request.values:
         spdebug = request.values['spdebug']
@@ -268,7 +209,7 @@ def sync_error_track_response():
     description = request.values['description']
     user_id = request.values['user_id']
 
-    print(f"sync_error_track: USERID: {USERID}. [Error: {error}] tries: {tries}. --", request.values)
+    print(f"sync_error_track: USERID: {USERID}. [Error: {error}] tries: {tries}. --")
     return ("", 200)
 
 @app.route("/null")
@@ -282,36 +223,39 @@ def flash_sync_error_response():
     elif sp_ref_cat == "flash_reload_attack":
         reason = "reload On End Attack"
 
-    print("flash_sync_error", reason, ". --", request.values)
+    print("flash_sync_error", reason, ". --")
     return redirect("/play.html")
 
 @app.route("/dynamic.flash1.dev.socialpoint.es/appsfb/socialempiresdev/srvempires/command.php", methods=['POST'])
 def command_response():
     spdebug = None
 
-    USERID = request.values['USERID']
+    USERID = current_save()
     user_key = request.values['user_key']
     if 'spdebug' in request.values:
         spdebug = request.values['spdebug']
     language = request.values['language']
     client_id = request.values['client_id']
 
-    print(f"command: USERID: {USERID}. --", request.values)
+    print(f"command: USERID: {USERID}. --")
 
-    data_str = request.values['data']
-    data_hash = data_str[:64]
-    assert data_str[64] == ';'
-    data_payload = data_str[65:]
-    data = json.loads(data_payload)
-
-    command(USERID, data)
+    data_str = request.values.get("data", "")
+    if len(data_str) < 66 or data_str[64] != ";":
+        abort(400)
+    try:
+        data = json.loads(data_str[65:])
+        if not isinstance(data, dict) or not isinstance(data.get("commands"), list):
+            abort(400)
+        command(USERID, data)
+    except (KeyError, ValueError, TypeError, IndexError):
+        abort(400)
     
     return ({"result": "success"}, 200)
 
 @app.route("/dynamic.flash1.dev.socialpoint.es/appsfb/socialempiresdev/srvempires/get_continent_ranking.php")
 def get_continent_ranking_response():
 
-    USERID = request.values['USERID']
+    USERID = current_save()
     worldChange = request.values['worldChange']
     if 'spdebug' in request.values:
         spdebug = request.values['spdebug']
@@ -342,5 +286,4 @@ def get_continent_ranking_response():
 print (" [+] Running server...")
 
 if __name__ == '__main__':
-    app.secret_key = 'SECRET_KEY'
     app.run(host=host, port=int(os.environ.get('PORT', port)), debug=False)
