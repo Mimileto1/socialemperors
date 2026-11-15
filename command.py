@@ -139,21 +139,32 @@ def do_command(USERID, cmd, args):
                 break
     
     elif cmd == Constant.CMD_COMPLETE_MISSION:
-        mission_id = args[0]
+        mission_id = int(args[0])
+        title = get_attribute_from_mission_id(mission_id, "title")
+        if title is None:
+            raise ValueError("Unknown mission")
+        completed = save["privateState"]["completedMissions"]
+        if any(str(value) == str(mission_id) for value in completed):
+            return
         skipped_with_cash = bool(args[1])
-        print("Complete mission", mission_id, ":", str(get_attribute_from_mission_id(mission_id, "title")))
+        print("Complete mission", mission_id, ":", title)
         if skipped_with_cash:
             cash_to_substract = 0 # TODO 
             save["playerInfo"]["cash"] = max(save["playerInfo"]["cash"] - cash_to_substract, 0)
-        save["privateState"]["completedMissions"] += [mission_id]
+        completed.append(mission_id)
     
     elif cmd == Constant.CMD_REWARD_MISSION:
         town_id = args[0]
-        mission_id = args[1]
-        print("Reward mission", mission_id, ":", str(get_attribute_from_mission_id(mission_id, "title")))
-        reward = int(get_attribute_from_mission_id(mission_id, "reward")) # gold
-        save["maps"][town_id]["coins"] += reward   
-        save["privateState"]["rewardedMissions"] += [mission_id]
+        mission_id = int(args[1])
+        rewarded = save["privateState"]["rewardedMissions"]
+        if any(str(value) == str(mission_id) for value in rewarded):
+            return
+        if not any(str(value) == str(mission_id) for value in save["privateState"]["completedMissions"]):
+            raise ValueError("Mission not completed")
+        reward = int(get_attribute_from_mission_id(mission_id, "reward"))
+        print("Reward mission", mission_id, ":", get_attribute_from_mission_id(mission_id, "title"))
+        save["maps"][town_id]["coins"] += reward
+        rewarded.append(mission_id)
     
     elif cmd == Constant.CMD_PUSH_UNIT:
         unit_x = args[0]
