@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 
 import requests
@@ -33,13 +34,19 @@ def pull_villages():
     directory.mkdir(parents=True, exist_ok=True)
     offset = 0
     while True:
-        response = requests.get(
-            URL + "/rest/v1/se_villages", headers=_headers(),
-            params={"select": "userid,data", "order": "userid.asc", "offset": offset, "limit": 100},
-            timeout=25,
-        )
-        response.raise_for_status()
-        rows = response.json()
+        try:
+            response = requests.get(
+                URL + "/rest/v1/se_villages", headers=_headers(),
+                params={"select": "userid,data", "order": "userid.asc", "offset": offset, "limit": 100},
+                timeout=10,
+            )
+            response.raise_for_status()
+            rows = response.json()
+        except requests.RequestException as error:
+            logging.getLogger(__name__).warning(
+                "Historical village import deferred: %s", type(error).__name__
+            )
+            return
         if not rows:
             return
         for row in rows:
