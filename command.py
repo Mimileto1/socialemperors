@@ -552,9 +552,78 @@ def do_command(USERID, cmd, args):
         print(f"Ended quest {quest_id}.")
 
     elif cmd == Constant.CMD_ADD_COLLECTABLE:
-        collection_id = args[0]
-        collectible_id = args[1]
-        # TODO 
+        collection_id = int(args[0])
+        collectible_id = int(args[1])
+        private_state = save.setdefault("privateState", {})
+        collections = private_state.setdefault("collections", [])
+        if not 0 <= collection_id < 1024:
+            raise ValueError("Invalid collection ID")
+        while len(collections) <= collection_id:
+            collections.append([])
+        if not isinstance(collections[collection_id], list):
+            collections[collection_id] = []
+        # Keep duplicates: the game uses the list length as the owned quantity.
+        collections[collection_id].append(collectible_id)
+        print(f"Saved collectible {collectible_id} in collection {collection_id}.")
+
+    elif cmd == Constant.CMD_FINISH_COLLECTION:
+        collection_id = int(args[0])
+        private_state = save.setdefault("privateState", {})
+        collections = private_state.setdefault("collections", [])
+        if not 0 <= collection_id < 1024:
+            raise ValueError("Invalid collection ID")
+        while len(collections) <= collection_id:
+            collections.append([])
+        collections[collection_id] = []
+        completed = private_state.setdefault("collectionsCompleted", [])
+        if collection_id not in completed:
+            completed.append(collection_id)
+        print(f"Completed collection {collection_id}.")
+
+    elif cmd == Constant.CMD_UNIT_COLLECTION_COMPLETED:
+        private_state = save.setdefault("privateState", {})
+        completed = private_state.setdefault("unitCollectionsCompleted", [])
+        for collection_id in args:
+            collection_id = int(collection_id)
+            if collection_id not in completed:
+                completed.append(collection_id)
+        print("Saved completed unit collection(s).")
+
+    elif cmd == Constant.CMD_UNIT_COLLECTION_REMOVE:
+        private_state = save.setdefault("privateState", {})
+        completed = private_state.setdefault("unitCollectionsCompleted", [])
+        for collection_id in args:
+            collection_id = int(collection_id)
+            while collection_id in completed:
+                completed.remove(collection_id)
+        print("Updated completed unit collections.")
+
+    elif cmd == Constant.CMD_BAHAMUT_SUPREME_INVOCATION_TEMPLE_ADD_UNIT:
+        private_state = save.setdefault("privateState", {})
+        private_state["templeUnit"] = int(args[0])
+        private_state["timeStampTemple"] = timestamp_now()
+        print(f"Saved temple unit {private_state['templeUnit']}.")
+
+    elif cmd == Constant.CMD_BAHAMUT_SUPREME_INVOCATION_TEMPLE_NEXT_STEP:
+        private_state = save.setdefault("privateState", {})
+        steps = private_state.setdefault("templeStep", [])
+        step = int(args[0]) if args else (len(steps) + 1)
+        if step not in steps:
+            steps.append(step)
+        private_state["timeStampTemple"] = timestamp_now()
+        print(f"Saved temple step {step}.")
+
+    elif cmd == Constant.CMD_BAHAMUT_SUPREME_INVOCATION_TEMPLE_RESET:
+        private_state = save.setdefault("privateState", {})
+        private_state["templeStep"] = []
+        private_state["templeUnit"] = 0
+        private_state["timeStampTemple"] = 0
+        print("Reset temple state.")
+
+    elif cmd == Constant.CMD_BAHAMUT_SUPREME_INVOCATION_TEMPLE_BUY_TIME:
+        private_state = save.setdefault("privateState", {})
+        private_state["timeStampTemple"] = timestamp_now()
+        print("Saved temple time purchase.")
 
     else:
         print(f"Unhandled command '{cmd}' -> args", args)

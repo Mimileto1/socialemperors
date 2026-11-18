@@ -4,23 +4,23 @@
 		"path": "/level_up_tips",
 		"value": [
 			{
-				"text": "you can do stuff for level 1",
+				"text": "Construye edificios y reúne recursos para hacer crecer tu imperio.",
 				"image": "level1.png"
 			},
 			{
-				"text": "you can do stuff for level 2",
+				"text": "Entrena aldeanos para recolectar madera, comida, piedra y oro.",
 				"image": "level2.png"
 			},
 			{
-				"text": "you can do stuff for level 3",
+				"text": "Mejora tus edificios para desbloquear nuevas unidades y opciones.",
 				"image": "level3.png"
 			},
 			{
-				"text": "you can do stuff for level 4",
+				"text": "Organiza tus tropas y prepara tus defensas antes de combatir.",
 				"image": "level4.png"
 			},
 			{
-				"text": "you can do stuff for level 5",
+				"text": "Completa misiones para ganar recursos y fortalecer tu imperio.",
 				"image": "level5.png"
 			}
     	]
@@ -33,7 +33,7 @@
 			{
 				"id": 1635,
 				"name": "NEW_BUILDINGS_UNLOKED",
-				"text": "New Buildings Unlocked"
+				"text": "Nuevos edificios desbloqueados"
 			}
 		]
 	},
@@ -45,7 +45,7 @@
 			{
 				"id": 1636,
 				"name": "LEVELUP_TIP_2",
-				"text": "Level up Tip for level 2"
+				"text": "Consejo: mejora tus edificios para desbloquear nuevas opciones."
 			}
 		]
 	},

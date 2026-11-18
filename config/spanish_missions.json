@@ -1,0 +1,914 @@
+{
+  "2": {
+    "title": "Entrena un aldeano",
+    "description": "Necesitas aldeanos para recolectar recursos. Haz clic en el ayuntamiento y luego en el botón ENTRENAR del panel inferior."
+  },
+  "3": {
+    "title": "Envía un aldeano al campo",
+    "description": "Tus campos necesitan aldeanos para producir comida. Primero selecciona un aldeano y luego haz clic en el campo."
+  },
+  "4": {
+    "title": "Recoge comida",
+    "description": "Cuando la comida esté lista, aparecerá un icono. ¡Haz clic en él para recoger los recursos!"
+  },
+  "5": {
+    "title": "Tala árboles y recoge madera",
+    "description": "Ya tienes comida, pero también necesitarás madera. Selecciona un aldeano y haz clic en un árbol. ¡Talará automáticamente los árboles cercanos!"
+  },
+  "6": {
+    "title": "Usa la rueda del ratón para acercar",
+    "description": "Gira la rueda del ratón o arrastra el control de la esquina inferior derecha para acercar o alejar el mapa. ¡Así encontrarás edificios y unidades!"
+  },
+  "7": {
+    "title": "Construye otro campo",
+    "description": "Los campos son esenciales para hacer crecer tu imperio porque producen comida. Ve a CONSTRUIR > Edificios > Recursos y coloca otro campo."
+  },
+  "8": {
+    "title": "Construye otra casa",
+    "description": "¡Los aldeanos y guerreros viven en casas! Cuantas más casas construyas, más unidades podrás entrenar. Ve a CONSTRUIR > Edificios > Casas y coloca una Casa I."
+  },
+  "9": {
+    "title": "Construye un cuartel",
+    "description": "¡Necesitarás un ejército para las próximas batallas! Pulsa CONSTRUIR, elige la categoría ATAQUE y selecciona el edificio Cuartel I."
+  },
+  "10": {
+    "title": "Entrena 3 lanceros",
+    "description": "Empieza a formar tu ejército con lanceros. Haz clic en el cuartel y luego en ENTRENAR, en la parte inferior. Repite el proceso tres veces."
+  },
+  "11": {
+    "title": "Entrena 2 aldeanos",
+    "description": "Haz clic en el ayuntamiento y luego en el botón ENTRENAR del panel inferior. Repítelo dos veces para entrenar a dos aldeanos."
+  },
+  "12": {
+    "title": "Construye un molino",
+    "description": "Los molinos producen comida, igual que los campos. Ve a CONSTRUIR > Edificios > Recursos y construye un molino."
+  },
+  "13": {
+    "title": "Envía un aldeano al molino",
+    "description": "¡Los molinos necesitan aldeanos para funcionar! Selecciona uno y haz clic en el molino para asignarlo."
+  },
+  "14": {
+    "title": "Elige comida en el molino",
+    "description": "¡Elige una opción para empezar a producir la cantidad de comida que quieras!"
+  },
+  "15": {
+    "title": "Asigna otro aldeano al molino",
+    "description": "¡Asigna otro aldeano al molino para producir más comida! Si no tienes aldeanos disponibles, entrénalos en el ayuntamiento."
+  },
+  "16": {
+    "title": "Saca un aldeano del molino",
+    "description": "Si te faltan recursos para entrenar aldeanos, puedes sacarlos de los edificios. Haz clic en el molino y luego en el retrato del aldeano, en el panel inferior."
+  },
+  "17": {
+    "title": "Extrae 3 de oro",
+    "description": "¡El oro te hará más poderoso! Se usa para entrenar las mejores unidades. Selecciona un aldeano y haz clic en una veta de oro. Explora el mapa para encontrarla."
+  },
+  "18": {
+    "title": "Selecciona con doble clic",
+    "description": "Haz doble clic en un lancero para seleccionar tres a la vez y muévelos cerca de la fuente del ayuntamiento. ¡El doble clic es muy útil!"
+  },
+  "19": {
+    "title": "Derrota a 3 troles",
+    "description": "Usa la herramienta de selección rectangular de la esquina inferior derecha para seleccionar unidades y luego atacar. También puedes pulsar ESPACIO. ¡Derrota a tres troles!"
+  },
+  "20": {
+    "title": "Construye un rancho de ovejas",
+    "description": "¡Las ovejas son adorables y sabrosas! Necesitan un rancho. Ve a CONSTRUIR > Edificios > Recursos. El rancho también producirá comida."
+  },
+  "21": {
+    "title": "Captura ovejas",
+    "description": "¡Muy bien! Si ya construiste un rancho, busca ovejas. Selecciona un aldeano y haz clic en una oveja para capturarla."
+  },
+  "22": {
+    "title": "Lleva una oveja al rancho",
+    "description": "Si un aldeano ya capturó una oveja, selecciónala y envíala al rancho."
+  },
+  "23": {
+    "title": "Recoge la producción del rancho",
+    "description": "Cuando el rancho de ovejas esté listo para producir, verás un icono de comida. ¡Haz clic en él!"
+  },
+  "24": {
+    "title": "Construye 3 campos más",
+    "description": "Construye tres campos más para alimentar a tus soldados. Puedes entrenar aldeanos en el ayuntamiento y asignarlos a varios campos para producir más comida a la vez."
+  },
+  "25": {
+    "title": "Recoge la producción de 5 campos",
+    "description": "Recoge la producción de cinco campos. Necesitan madera para reconstruirse, así que procura tener siempre algo en el inventario. Consulta tus recursos en la esquina superior izquierda."
+  },
+  "26": {
+    "title": "Construye 4 casas más",
+    "description": "Construye cuatro casas más para aumentar tu límite de población. (CONSTRUIR > Edificios > Casas)"
+  },
+  "27": {
+    "title": "Construye una mina de oro",
+    "description": "También puedes obtener oro de las minas, pero solo puedes tener una. Ve a Edificios > Recursos y constrúyela."
+  },
+  "28": {
+    "title": "Asigna un aldeano a la mina de oro",
+    "description": "Las minas necesitan aldeanos para extraer oro. Envía uno a la mina. Si no tienes ninguno, recuerda que puedes entrenarlos en el ayuntamiento."
+  },
+  "29": {
+    "title": "Construye una arquería",
+    "description": "La arquería te permite entrenar arqueros, que tienen más alcance que la infantería. Está en la sección ATAQUE del menú CONSTRUIR."
+  },
+  "30": {
+    "title": "Entrena 3 arqueros ligeros",
+    "description": "Entrena tres arqueros ligeros en la arquería. Haz clic en el edificio y luego en ENTRENAR, en la parte inferior."
+  },
+  "31": {
+    "title": "Derrota a 5 troles más",
+    "description": "¡Es hora de derrotar troles! Selecciona tus unidades con la herramienta rectangular, en la esquina inferior derecha, o con doble clic. Luego haz clic en un trol enemigo para atacarlo."
+  },
+  "32": {
+    "title": "Construye 5 decoraciones",
+    "description": "¡No todo son batallas! Decora tu imperio para que se vea más bonito. Ve a CONSTRUIR > Decoraciones y coloca cinco."
+  },
+  "33": {
+    "title": "Ponle nombre a tu imperio",
+    "description": "¡Todos los imperios tienen nombre! Ponle uno al tuyo. Haz clic en el nombre de tu imperio, en la esquina superior derecha."
+  },
+  "34": {
+    "title": "Tala 10 árboles",
+    "description": "Haz clic en un aldeano y luego en un árbol para talarlo. Si hay más árboles cerca, el aldeano los talará automáticamente."
+  },
+  "35": {
+    "title": "Recoge 10 piedras",
+    "description": "¡La piedra es muy importante para construir defensas! Usa a tus aldeanos para recolectar diez piedras."
+  },
+  "36": {
+    "title": "Construye 2 torres junto al ayuntamiento",
+    "description": "Construye dos torres cerca del ayuntamiento para protegerlo de tus enemigos. ¡Es tu edificio más importante! (CONSTRUIR > Defensas)"
+  },
+  "37": {
+    "title": "Construye un muro",
+    "description": "Construye una fila de 20 muros I en el borde inferior izquierdo de tu imperio para empezar una muralla defensiva. Ve a CONSTRUIR > Defensas > Muros."
+  },
+  "38": {
+    "title": "Mueve un muro",
+    "description": "Selecciona un muro I y muévelo con la opción Mover de la interfaz (el icono con flechas)."
+  },
+  "39": {
+    "title": "Construye establos I",
+    "description": "¡Tu ejército necesita caballería! Construye establos para entrenar caballeros ligeros. (CONSTRUIR > Ataque)"
+  },
+  "40": {
+    "title": "Entrena 3 caballeros ligeros",
+    "description": "¡Necesitarás más guerreros antes de tu primera batalla de verdad! Entrena tres caballeros ligeros en los nuevos Establos I."
+  },
+  "41": {
+    "title": "Selecciona unidades con la herramienta rectangular",
+    "description": "Selecciona varias unidades con la herramienta rectangular de la esquina inferior derecha. También puedes usar la tecla ESPACIO: ¡es más rápido!"
+  },
+  "42": {
+    "title": "Derrota a todos los troles",
+    "description": "¡Derrota a todos los troles de tu imperio! Consulta el contador de la esquina inferior derecha para saber cuántos quedan. ¡Destruye primero sus torres!"
+  },
+  "43": {
+    "title": "¡Rescata a la princesa!",
+    "description": "Cuando hayas derrotado a todos los troles, libera a la princesa y consigue el tesoro."
+  },
+  "44": {
+    "title": "Visita a #0#",
+    "description": "Haz clic en el retrato de #0#, en la parte inferior, y descubre lo bonito que puede ser un imperio."
+  },
+  "45": {
+    "title": "Construye un aserradero y asigna un aldeano",
+    "description": "Construye un aserradero y asigna un aldeano para producir madera. Está en CONSTRUIR > Edificios > Recursos."
+  },
+  "46": {
+    "title": "Elige la opción de madera",
+    "description": "Elige una opción para empezar a producir la cantidad de madera que quieras."
+  },
+  "47": {
+    "title": "Asigna otro aldeano al aserradero",
+    "description": "Asigna otro aldeano para producir más madera. Si no tienes aldeanos disponibles en el mapa, entrénalos en el ayuntamiento."
+  },
+  "48": {
+    "title": "Construye un rancho de vacas",
+    "description": "Construye un rancho para alojar tus vacas. (CONSTRUIR > Edificios > Recursos)"
+  },
+  "49": {
+    "title": "Lleva una vaca al rancho",
+    "description": "Lleva una vaca al rancho para empezar a producir comida."
+  },
+  "50": {
+    "title": "Construye un mercado",
+    "description": "¡Construye un mercado para comprar e intercambiar recursos! Está en CONSTRUIR > Edificios > Varios."
+  },
+  "51": {
+    "title": "Invita a un amigo al mercado",
+    "description": "Invita a un amigo para que te ayude a abrir tu magnífico mercado."
+  },
+  "52": {
+    "title": "Gasta 1 moneda",
+    "description": "Las monedas sirven para comprar unidades, edificios y amigos para edificios sociales. ¡Date un gusto y gasta una moneda en lo que quieras!"
+  },
+  "53": {
+    "title": "Abre el mercado",
+    "description": "Cuando hayas asignado amigos al mercado, pulsa Abrir edificio para ponerlo en funcionamiento."
+  },
+  "54": {
+    "title": "Consulta las colecciones",
+    "description": "Haz clic en el icono de regalos, en la esquina inferior derecha, y luego en el trofeo. ¡Completa colecciones para conseguir guerreros y objetos únicos!"
+  },
+  "55": {
+    "title": "Consigue la bonificación diaria durante 3 días",
+    "description": "Juega tres días seguidos y haz clic en la bolsa de bonificación diaria, a la izquierda, para conseguir oro extra."
+  },
+  "56": {
+    "title": "Alcanza una población de 40",
+    "description": "Alcanza una población de 40 habitantes. ¡Será señal de que tu imperio está creciendo!"
+  },
+  "57": {
+    "title": "Extrae oro de 10 vetas",
+    "description": "Extrae oro de diez vetas para aumentar tus recursos. ¡Pronto lo necesitarás!"
+  },
+  "58": {
+    "title": "Construye una mina de piedra I",
+    "description": "La piedra es necesaria para construir defensas. Construye una mina de piedra para empezar a producirla. (CONSTRUIR > Edificios > Recursos)"
+  },
+  "59": {
+    "title": "Ataca a 1 jugador",
+    "description": "¡Atacar a otros jugadores da mucho oro y experiencia! Haz clic en el icono azul del MUNDO y luego en Atacar junto a un jugador. ¡Lee la ayuda de batalla antes de empezar!"
+  },
+  "60": {
+    "title": "Elige una estrategia defensiva",
+    "description": "Pulsa el botón azul del MUNDO y luego OPCIONES, en la parte superior. Selecciona «Mi estrategia defensiva» y elige cómo se comportarán tus unidades."
+  },
+  "61": {
+    "title": "Recoge la producción del molino",
+    "description": "Recoge la comida producida por el molino para alimentar a tus tropas!"
+  },
+  "62": {
+    "title": "Recoge la producción del aserradero",
+    "description": "Recoge la madera producida por el aserradero para seguir construyendo."
+  },
+  "63": {
+    "title": "Recoge la producción de la mina de piedra",
+    "description": "Recoge la piedra de la mina para seguir construyendo defensas."
+  },
+  "64": {
+    "title": "Recoge la producción de la mina de oro",
+    "description": "Recoge el oro de la mina para seguir construyendo defensas."
+  },
+  "65": {
+    "title": "Consigue 200 piedras en el mercado",
+    "description": "Compra 200 unidades de piedra en el mercado. Haz clic en el mercado, elige Visitar mercado en el panel inferior y pulsa dos veces COMPRAR en el icono de piedra."
+  },
+  "66": {
+    "title": "Consigue 100 maderas en el mercado",
+    "description": "Compra 100 unidades de madera en el mercado. Haz clic en el mercado, elige Visitar mercado en el panel inferior y pulsa dos veces COMPRAR en el icono de madera."
+  },
+  "67": {
+    "title": "¡Ataca a 1 amigo!",
+    "description": "Haz clic en MUNDO en el retrato de un amigo (si no aparece, pulsa Ayuda y vuelve a tu imperio) y atácalo. ¡Esta vez te perdonará! =P"
+  },
+  "68": {
+    "title": "Consulta los ataques",
+    "description": "Pulsa el botón azul del MUNDO y luego RESULTADOS DE BATALLA. Consulta tus ataques y quién te atacó."
+  },
+  "69": {
+    "title": "Construye una casa II",
+    "description": "Las casas II alojan a más habitantes. Construye una o mejora una Casa I: selecciónala y pulsa MEJORAR en el panel inferior."
+  },
+  "70": {
+    "title": "Guarda una decoración",
+    "description": "Selecciona una decoración y pulsa el icono GUARDAR del panel inferior. Para recuperarla o venderla, ve a CONSTRUIR > Almacén."
+  },
+  "71": {
+    "title": "Construye y abre un águila I",
+    "description": "Las águilas te permiten espiar a tus enemigos antes de atacarlos. Construye una y contrata amigos para abrirla. (CONSTRUIR > Edificios > Varios)"
+  },
+  "72": {
+    "title": "Vende 100 maderas",
+    "description": "Vende 100 unidades de madera en el mercado. Pulsa VENDER para recibir oro a cambio."
+  },
+  "73": {
+    "title": "Amplía 2 parcelas",
+    "description": "Haz clic en un cartel EN VENTA de tu imperio para comprar terreno y seguir expandiéndote."
+  },
+  "74": {
+    "title": "Construye un taller I",
+    "description": "Construye un taller I para fabricar arietes y derribar las puertas de las fortificaciones enemigas. (CONSTRUIR > Ataque)"
+  },
+  "75": {
+    "title": "Libera a 3 arqueros",
+    "description": "¡Libera a los tres arqueros secuestrados por los troles! (Misión diaria)"
+  },
+  "76": {
+    "title": "Derrota a 5 troles taimados",
+    "description": "Derrota a cinco troles taimados. ¡Forman parte de la conspiración para destruir tu imperio!"
+  },
+  "77": {
+    "title": "Ataque coordinado",
+    "description": "Envía cinco arqueros a atacar la misma torre y luego manda a tus unidades cuerpo a cuerpo contra esa torre."
+  },
+  "78": {
+    "title": "Usa un águila",
+    "description": "Pulsa el icono del mundo en la parte superior y luego ESPIAR junto a cualquier jugador para explorar su imperio."
+  },
+  "79": {
+    "title": "Derrota a dos jugadores",
+    "description": "Derrota a dos jugadores, incluidos tus amigos, para conseguir oro... ¡y gloria!"
+  },
+  "80": {
+    "title": "Construye un puerto",
+    "description": "Construye un puerto (Edificios > Varios), invita a tus amigos y pulsa ABRIR para explorar los mares."
+  },
+  "81": {
+    "title": "Consulta el mapa",
+    "description": "Cuando el puerto esté abierto, selecciónalo y pulsa ¡A navegar! para ver el mapa."
+  },
+  "82": {
+    "title": "Completa la Isla Misteriosa con 1 estrella",
+    "description": "Viaja con el puerto a la Isla Misteriosa y recupera el tesoro que los troles robaron a tus antepasados. Completa la isla con una estrella."
+  },
+  "83": {
+    "title": "Mejora el cuartel a nivel II",
+    "description": "Mejora el cuartel a nivel II para entrenar unidades más fuertes. (Edificios > Ataque o pulsa MEJORAR en el Cuartel I)"
+  },
+  "84": {
+    "title": "Entrena 3 espadachines",
+    "description": "Entrena tres espadachines en el Cuartel II... ¡pronto los necesitarás!"
+  },
+  "85": {
+    "title": "Navega por otra ruta",
+    "description": "Abre el mapa de otra forma: pulsa el icono del mundo en la parte superior y luego el barco que rodea la isla."
+  },
+  "86": {
+    "title": "Completa la Isla Desconocida con 1 estrella",
+    "description": "La Isla Desconocida es fría y hostil, pero los troles devastadores protegen una buena cantidad de oro. Completa la isla con una estrella."
+  },
+  "87": {
+    "title": "Construye 2 torres II",
+    "description": "Construye dos torres II en tu imperio para derrotar a los enemigos más rápido. (CONSTRUIR > Defensas)"
+  },
+  "88": {
+    "title": "Construye 20 muros II",
+    "description": "Construye veinte muros II en la fila inferior izquierda de tu primera parcela. (CONSTRUIR > Defensas) También puedes mejorar los muros I existentes."
+  },
+  "89": {
+    "title": "Construye 2 campos de calabazas",
+    "description": "Construye dos campos de calabazas para producir más comida."
+  },
+  "90": {
+    "title": "Invoca aliados",
+    "description": "Construye un edificio de aliados y consigue nueve aliados para abrirlo."
+  },
+  "91": {
+    "title": "Mejora la arquería a nivel II",
+    "description": "Mejora la arquería para entrenar mejores arqueros. (Edificios > Ataque)"
+  },
+  "93": {
+    "title": "Rescata a los soldados secuestrados",
+    "description": "¡Los troles secuestraron a varios soldados! ¡Libéralos! (Misión diaria)"
+  },
+  "94": {
+    "title": "Derrota a 3 jugadores",
+    "description": "Demuestra tu valor y derrota a tres jugadores... ¡incluidos tus amigos!"
+  },
+  "95": {
+    "title": "Construye un molino II",
+    "description": "Construye un molino II para aumentar la producción de comida."
+  },
+  "96": {
+    "title": "Invita a 6 amigos para el molino II",
+    "description": "Invita a seis amigos para abrir el molino."
+  },
+  "97": {
+    "title": "Asigna aldeanos al molino II",
+    "description": "Asigna aldeanos a tu nuevo molino para aprovecharlo al máximo."
+  },
+  "98": {
+    "title": "Deja el molino funcionando 8 horas",
+    "description": "Deja el molino recolectando durante ocho horas."
+  },
+  "99": {
+    "title": "Mejora el mercado",
+    "description": "Mejora el mercado a nivel II para comprar o vender más recursos."
+  },
+  "100": {
+    "title": "Construye 8 torres",
+    "description": "Construye ocho torres en tu imperio. ¡Los troles atacarán pronto y debes protegerte!"
+  },
+  "101": {
+    "title": "Apaga un incendio",
+    "description": "Si los troles incendian un edificio, selecciona un aldeano y haz clic en el fuego para apagarlo."
+  },
+  "102": {
+    "title": "Ayuda a un amigo",
+    "description": "Visita a un amigo y ayúdalo a recolectar todos los recursos que puedas."
+  },
+  "103": {
+    "title": "Construye el edificio de premios",
+    "description": "Construye el edificio de premios e invita aliados para conseguir unidades especiales. (Edificios > Varios)"
+  },
+  "104": {
+    "title": "Consigue la recompensa de reclutamiento",
+    "description": "Pide a tres amigos que te ayuden a conseguir una unidad especial en el edificio de premios."
+  },
+  "105": {
+    "title": "Construye los establos de entrenamiento",
+    "description": "Construye los establos de entrenamiento para mejorar la movilidad de tus unidades."
+  },
+  "106": {
+    "title": "Captura un caballo y...",
+    "description": "Captura un caballo con un aldeano o guerrero y llévalo a los establos de entrenamiento."
+  },
+  "107": {
+    "title": "Lleva un espadachín a los establos...",
+    "description": "Después de llevar un caballo, envía un espadachín a los establos de entrenamiento para convertirlo en caballero mediano."
+  },
+  "108": {
+    "title": "Completa la Isla Misteriosa con 2 estrellas",
+    "description": "Completa la Isla Misteriosa con dos estrellas para conseguir mucho más oro y experiencia."
+  },
+  "109": {
+    "title": "Mejora el ayuntamiento",
+    "description": "Selecciona el ayuntamiento y pulsa MEJORAR en la parte inferior de la interfaz."
+  },
+  "110": {
+    "title": "Entrena 2 aldeanos",
+    "description": "Entrena dos aldeanos en el nuevo ayuntamiento. ¡Ahora correrán como liebres!"
+  },
+  "111": {
+    "title": "Mejora los establos",
+    "description": "Mejora los establos a nivel II para entrenar unidades montadas más pesadas."
+  },
+  "112": {
+    "title": "Entrena 3 caballeros medianos",
+    "description": "Entrena tres caballeros medianos... ¡Cada día eres más fuerte!"
+  },
+  "113": {
+    "title": "¡Consigue el cofre del tesoro!",
+    "description": "¡Consigue el cofre del tesoro protegido por los troles! (Misión diaria)"
+  },
+  "114": {
+    "title": "Construye el mercado de aliados",
+    "description": "Construye el mercado de aliados para que tus amigos puedan enviarte recursos gratis. (Edificios > Varios)"
+  },
+  "115": {
+    "title": "Consigue madera en el mercado de aliados",
+    "description": "Pide ayuda a tus amigos y consigue al menos 500 unidades de madera en el mercado de aliados."
+  },
+  "116": {
+    "title": "Isla Inexplorada (1 estrella)",
+    "description": "Descubre los secretos de la Isla Inexplorada (1 estrella). ¡Cuidado con los esqueletos malvados!"
+  },
+  "117": {
+    "title": "Construye una mina de oro II",
+    "description": "¡Cuanto más oro, mejor! Construye una mina de oro II para aumentar la producción."
+  },
+  "118": {
+    "title": "Asigna 4 aldeanos a la mina de oro II",
+    "description": "Aprovecha al máximo la mina de oro II y asígnale cuatro aldeanos."
+  },
+  "119": {
+    "title": "Construye la mina del tesoro",
+    "description": "¿Necesitas completar colecciones? ¡Construye una mina del tesoro para conseguir un objeto cada día!"
+  },
+  "120": {
+    "title": "Recoge un objeto de la mina del tesoro",
+    "description": "Recoge el objeto sorpresa de la mina del tesoro. Deben pasar 24 horas desde que recogiste el último regalo."
+  },
+  "121": {
+    "title": "Construye un taller II",
+    "description": "Construye un taller II para disponer de un arma muy dañina: ¡los escorpiones! (CONSTRUIR > Ataque)"
+  },
+  "122": {
+    "title": "Abre el taller II",
+    "description": "Pide ayuda a tus amigos para abrir el taller II. ¡Los escorpiones causan estragos en las torres enemigas!"
+  },
+  "123": {
+    "title": "Construye 3 escorpiones",
+    "description": "Construye tres escorpiones en el Taller II y prepárate para la última etapa."
+  },
+  "124": {
+    "title": "Destruye 1 torre con escorpiones",
+    "description": "Cuando aparezca el próximo campamento trol, destruye una torre con tres escorpiones. ¡Las torres débiles no tienen alcance suficiente para destruirlos!"
+  },
+  "125": {
+    "title": "Construye una torre III",
+    "description": "Construye una torre III para protegerte mejor de los ataques."
+  },
+  "126": {
+    "title": "Construye un altar de los héroes",
+    "description": "Construye un altar de los héroes para conseguir unidades especiales poderosas."
+  },
+  "127": {
+    "title": "Consigue un héroe",
+    "description": "Consigue un héroe en el altar para derrotar a tus enemigos más fácilmente. Pulsa CONSEGUIR HÉROE."
+  },
+  "128": {
+    "title": "Derrota a un lanzahachas",
+    "description": "Derrota a un lanzahachas. ¡Estas criaturas despiadadas atacan a tus unidades desde lejos!"
+  },
+  "129": {
+    "title": "Rescata a los aldeanos",
+    "description": "¡Rescata a los aldeanos capturados por los troles! Ellos harían lo mismo por ti. (Misión diaria)"
+  },
+  "130": {
+    "title": "Coloca un héroe en el mapa",
+    "description": "Juega cinco días seguidos para conseguir tu unidad especial. Para colocar al héroe en el mapa, ve a CONSTRUIR > Almacén."
+  },
+  "131": {
+    "title": "¡Rescata a los pingüinos!",
+    "description": "Ve a la Isla Ártica (1 estrella) y rescata a los pingüinos. ¡Cuidado, una gran bestia te espera!"
+  },
+  "132": {
+    "title": "Lucha contra dos jugadores de tu nivel",
+    "description": "Enfréntate a dos jugadores de tu nivel y demuestra tus habilidades. No hace falta ganar, pero debes terminar los combates."
+  },
+  "133": {
+    "title": "Construye un aserradero II",
+    "description": "Construye un aserradero II para producir más madera."
+  },
+  "134": {
+    "title": "Asigna 4 aldeanos al aserradero II",
+    "description": "Asigna cuatro aldeanos al aserradero II para aumentar su producción."
+  },
+  "135": {
+    "title": "Construye un refugio pequeño",
+    "description": "Construye un refugio pequeño y, antes de salir del juego, guarda dentro dos de tus unidades más valiosas para protegerlas de otros jugadores."
+  },
+  "136": {
+    "title": "Construye una iglesia grande",
+    "description": "Invoca poderes celestiales y construye una iglesia grande para aumentar tu límite de población. (CONSTRUIR > Maravillas)"
+  },
+  "137": {
+    "title": "¡Más troles devastadores!",
+    "description": "¡Los troles escondieron más tesoros y duplicaron la guardia! Completa la Isla Desconocida con dos estrellas."
+  },
+  "138": {
+    "title": "Construye un cuartel III",
+    "description": "Construye un cuartel III para entrenar al célebre espadachín de hoja larga."
+  },
+  "139": {
+    "title": "Entrena 3 espadachines de hoja larga",
+    "description": "Entrena tres espadachines de hoja larga. ¡Te ayudarán a derrotar a tus enemigos más rápido!"
+  },
+  "140": {
+    "title": "Mejora las águilas a nivel II",
+    "description": "Mejora las águilas a nivel II para que tengan más salud y exploren más terreno enemigo."
+  },
+  "141": {
+    "title": "Construye una tumba de héroes",
+    "description": "Construye una tumba de héroes para poder resucitar tus unidades especiales caídas."
+  },
+  "142": {
+    "title": "Libera al trol prisionero",
+    "description": "Libera al trol prisionero. Siempre rechazó la maldad de su tribu e intentó ser un buen trol."
+  },
+  "143": {
+    "title": "Derrota a 1 jinete de jabalí",
+    "description": "¡Derrota a un jinete de jabalí! Esta bestia montada atacará a tus guerreros incluso cuando no estés mirando."
+  },
+  "144": {
+    "title": "¡Troles por triplicado!",
+    "description": "Completa la Isla Misteriosa con tres estrellas y derrota a todos los troles malvados."
+  },
+  "145": {
+    "title": "Construye una mina de piedra II",
+    "description": "Construye una mina de piedra II para producir más piedra y hacer prosperar tu imperio."
+  },
+  "146": {
+    "title": "Construye 20 muros III",
+    "description": "Construye veinte muros III en la fila inferior izquierda o mejora los que ya tienes allí. ¡Así dificultarás la entrada de tus enemigos!"
+  },
+  "147": {
+    "title": "Construye un rancho de vacas II",
+    "description": "Construye un rancho de vacas II. ¡La carne ya está rica y con esta mejora será aún mejor!"
+  },
+  "148": {
+    "title": "Lleva una vaca al rancho",
+    "description": "Lleva una vaca al rancho para producir una buena cantidad de comida."
+  },
+  "149": {
+    "title": "Construye la mesa redonda",
+    "description": "Construye una mesa redonda para que tus aliados te ayuden a conseguir bonificaciones increíbles."
+  },
+  "150": {
+    "title": "Asigna 4 aliados a la mesa redonda",
+    "description": "Invita a cuatro aliados a la mesa redonda para obtener el primer premio."
+  },
+  "151": {
+    "title": "Destruye 2 torres trol III",
+    "description": "¡Destruye dos torres trol III y demuestra a esas bestias quién manda en este imperio!"
+  },
+  "152": {
+    "title": "¡Rescata al príncipe Arturo!",
+    "description": "¡Los troles malvados secuestraron al príncipe Arturo! ¡Sálvalo antes de que sea tarde!"
+  },
+  "153": {
+    "title": "Mejora la arquería a nivel II",
+    "description": "Construye una arquería III para entrenar arqueros pesados letales."
+  },
+  "154": {
+    "title": "Entrena 3 arqueros pesados",
+    "description": "Entrena tres arqueros pesados. ¡Tus enemigos te temerán más!"
+  },
+  "155": {
+    "title": "Construye un templo",
+    "description": "Construye un templo para obtener más oro."
+  },
+  "156": {
+    "title": "Venga a tus antepasados",
+    "description": "Los troles conquistaron esta isla y mataron a todos sus habitantes humanos. ¡Venga a tus antepasados y conquista la Isla Emergente (1 estrella)!"
+  },
+  "157": {
+    "title": "Mejora las casas II",
+    "description": "Mejora cuatro casas I a casas II para alojar a más habitantes."
+  },
+  "158": {
+    "title": "Amplía 3 parcelas",
+    "description": "Amplía tres parcelas de terreno."
+  },
+  "159": {
+    "title": "Abre la iglesia",
+    "description": "Abre una iglesia para entrenar sanadores."
+  },
+  "160": {
+    "title": "Entrena 3 sanadores",
+    "description": "Entrena tres sanadores para que curen a tus unidades en combate."
+  },
+  "161": {
+    "title": "Ataca a 2 jugadores de nivel superior",
+    "description": "Ataca a dos jugadores de nivel superior y demuestra quién es el mejor."
+  },
+  "162": {
+    "title": "Libera los pozos",
+    "description": "¡Los troles cortaron el suministro de agua! Derrótalos y recupera el control de los pozos."
+  },
+  "163": {
+    "title": "Construye unos establos III",
+    "description": "Construye unos establos III para entrenar a los temibles caballeros pesados."
+  },
+  "164": {
+    "title": "Rescata a los sanadores",
+    "description": "¡Rescata a los sanadores cautivos de los troles! Después se unirán a tu ejército."
+  },
+  "165": {
+    "title": "Completa la Isla Brumosa con 1 estrella",
+    "description": "Visita la Isla Brumosa (1 estrella) y destruye el ayuntamiento de tus enemigos vikingos antes de que conquisten tu tierra."
+  },
+  "166": {
+    "title": "Completa la Isla Desconocida con 3 estrellas",
+    "description": "Visita la Isla Desconocida (3 estrellas) y demuestra a los troles devastadores quién tiene el poder."
+  },
+  "167": {
+    "title": "Construye 3 campos de berenjenas",
+    "description": "Construye tres campos de berenjenas para producir más comida."
+  },
+  "168": {
+    "title": "Construye 1 puerta de muro",
+    "description": "Construye una puerta en el muro para que tus unidades entren y salgan del imperio con facilidad y seguridad."
+  },
+  "169": {
+    "title": "Construye una academia",
+    "description": "Construye una academia (Edificios > Investigación) para entrenar a tus aldeanos: correrán más rápido y podrán recolectar más recursos."
+  },
+  "170": {
+    "title": "Construye un taller III",
+    "description": "Construye un taller III para fabricar catapultas destructivas."
+  },
+  "171": {
+    "title": "Sacrifica una unidad",
+    "description": "Construye un altar de sacrificio y sacrifica una unidad para recuperar parte de los recursos en tu inventario."
+  },
+  "172": {
+    "title": "¡Libera 4 minas de piedra!",
+    "description": "¡Libera cuatro minas de piedra del control de los troles! Este recurso es esencial para sobrevivir. (Misión diaria)"
+  },
+  "173": {
+    "title": "Completa la Isla Inexplorada con 2 estrellas",
+    "description": "Visita la Isla Inexplorada (2 estrellas) y derrota a todos los esqueletos para acabar con los muertos vivientes."
+  },
+  "174": {
+    "title": "Construye un molino III",
+    "description": "Construye un molino III para aumentar aún más la producción de comida."
+  },
+  "175": {
+    "title": "Construye 2 torres IV",
+    "description": "Construye dos torres IV para derrotar a tus enemigos con facilidad."
+  },
+  "176": {
+    "title": "Abre la catedral",
+    "description": "Abre una catedral para entrenar monjes hipnotizadores. ¡Son muy poderosos!"
+  },
+  "177": {
+    "title": "Convierte a un enemigo con un monje",
+    "description": "Usa un monje para convertir a un enemigo. ¡Después podrás controlarlo!"
+  },
+  "178": {
+    "title": "Construye un criadero",
+    "description": "Construye un criadero para ayudar a los animales a reproducirse."
+  },
+  "179": {
+    "title": "Coloca 2 caballos dentro",
+    "description": "Coloca dos caballos dentro y espera a que nazca uno nuevo. ¡Puedes criar todos los que necesites!"
+  },
+  "180": {
+    "title": "Completa la Isla de las Dunas con 1 estrella",
+    "description": "Visita la Isla de las Dunas (1 estrella) y destruye el Salón Dorado donde vive la traicionera momia. ¡Cuidado con los siervos de Anubis!"
+  },
+  "181": {
+    "title": "Construye una mina de oro III",
+    "description": "Construye una mina de oro III para aumentar tus reservas de oro."
+  },
+  "182": {
+    "title": "Asigna 6 aldeanos a la mina",
+    "description": "Asigna seis aldeanos a tu nueva mina de oro para aprovecharla al máximo."
+  },
+  "184": {
+    "title": "Entrena 2 caballeros arqueros",
+    "description": "Entrena dos caballeros arqueros para aumentar la velocidad de tus unidades a distancia."
+  },
+  "185": {
+    "title": "Rescata a los aliados capturados",
+    "description": "Rescata a los aliados que capturaron los troles antes de que los eliminen."
+  },
+  "186": {
+    "title": "Construye una torre de zeppelin",
+    "description": "Construye una torre de zeppelin para volar sobre el Mar Oriental y visitar más islas."
+  },
+  "187": {
+    "title": "Mejora el ayuntamiento a nivel III",
+    "description": "Mejora el ayuntamiento a nivel III. ¡Tus aldeanos correrán como los mejores atletas!"
+  },
+  "188": {
+    "title": "Entrena 2 aldeanos III",
+    "description": "Entrena dos aldeanos III y prueba su velocidad extraordinaria."
+  },
+  "189": {
+    "title": "Mejora el mercado a nivel III",
+    "description": "Mejora el mercado a nivel III para intercambiar más recursos en cada operación."
+  },
+  "190": {
+    "title": "Construye 10 muros IV",
+    "description": "Construye diez muros IV en la fila inferior izquierda de tu primera parcela."
+  },
+  "191": {
+    "title": "Completa la Isla Ártica con 2 estrellas",
+    "description": "Visita la Isla Ártica (2 estrellas) y reúnete con tu «amigo» el Yeti para rescatar a los pingüinos. ¡Cuidado, pidió ayuda!"
+  },
+  "192": {
+    "title": "Libera a los animales capturados",
+    "description": "¡Libera a los animales encerrados en las jaulas! ¡Están sufriendo!"
+  },
+  "193": {
+    "title": "Construye un taller IV",
+    "description": "Construye un taller IV para fabricar cañones. ¡Hurra!"
+  },
+  "194": {
+    "title": "Entrena 3 cañones",
+    "description": "Entrena tres cañones y pruébalos contra tus enemigos cuando quieras."
+  },
+  "195": {
+    "title": "Cura a una unidad herida",
+    "description": "Construye el Manantial Curativo y cura a una unidad herida después de una batalla. ¡Este árbol es milagroso!"
+  },
+  "196": {
+    "title": "Construye un rancho de vacas III",
+    "description": "Construye un rancho de vacas III para producir más comida. A las vacas no les gustará, ¡pero tu imperio lo necesita para sobrevivir!"
+  },
+  "197": {
+    "title": "Construye un aserradero III",
+    "description": "Construye un aserradero III para producir más madera."
+  },
+  "198": {
+    "title": "Completa la Isla Emergente con 2 estrellas",
+    "description": "Visita la Isla Emergente (2 estrellas) e intenta conseguir el tesoro que protegen los troles. ¡Ahora son mucho más peligrosos!"
+  },
+  "199": {
+    "title": "Construye un cuartel IV",
+    "description": "Construye un cuartel IV para entrenar espadachines poderosos. ¡Tus enemigos temblarán!"
+  },
+  "200": {
+    "title": "Entrena 3 espadachines IV",
+    "description": "Entrena tres espadachines IV y demuestra a tus enemigos tu habilidad con la espada."
+  },
+  "201": {
+    "title": "Construye 2 campos de zanahorias",
+    "description": "Construye dos campos de zanahorias para producir más comida. Tus guerreros no son conejos, ¡pero también les gustan las zanahorias!"
+  },
+  "202": {
+    "title": "Construye una academia forestal",
+    "description": "Construye una academia forestal para que tus aldeanos talen árboles más rápido que un leñador profesional."
+  },
+  "203": {
+    "title": "Abre una mina de piedra III",
+    "description": "Abre una mina de piedra III para aumentar tus reservas de piedra."
+  },
+  "204": {
+    "title": "Construye un taller mecánico",
+    "description": "Construye un taller mecánico. Allí podrás entrenar ingenieros para reparar armas de asedio."
+  },
+  "205": {
+    "title": "¡Libera las armas de asedio!",
+    "description": "¡Recupera las armas de asedio que robaron los troles! ¿Para qué las roban si no saben usarlas?"
+  },
+  "206": {
+    "title": "Construye una arquería IV",
+    "description": "Construye una arquería IV para entrenar arqueros poderosos. Si tus enemigos ya te temían, ¡ahora muchos huirán al verte!"
+  },
+  "207": {
+    "title": "Entrena 3 arqueros poderosos",
+    "description": "Entrena tres arqueros poderosos y demuestra lo penetrantes que son tus nuevas flechas."
+  },
+  "208": {
+    "title": "Construye un nido de águilas III",
+    "description": "Construye un nido de águilas III para criar águilas más fuertes."
+  },
+  "209": {
+    "title": "Explora la estatua de esqueleto",
+    "description": "Explora la estatua de esqueleto y descubre su secreto. (Misión diaria)"
+  },
+  "210": {
+    "title": "Completa la Isla del Desierto con 1 estrella",
+    "description": "Visita la Isla del Desierto (1 estrella) y derrota a todos los troles. Cuidado: algo peligroso acecha bajo la arena..."
+  },
+  "211": {
+    "title": "Construye una casa IV",
+    "description": "Construye una casa IV para alojar a más habitantes."
+  },
+  "212": {
+    "title": "Abre un taller de fuego",
+    "description": "Abre un taller de fuego para fabricar cañones ígneos. ¡Súper!"
+  },
+  "213": {
+    "title": "Construye una academia minera",
+    "description": "Construye una academia minera para que tus aldeanos recolecten oro y piedra más rápido."
+  },
+  "214": {
+    "title": "Abre un molino IV",
+    "description": "Abre un molino IV para producir más comida. ¡Tus guerreros siempre tienen hambre!"
+  },
+  "215": {
+    "title": "Construye unos establos IV",
+    "description": "Construye unos establos IV para entrenar caballeros poderosos. ¡Ahora eres más fuerte que nunca!"
+  },
+  "216": {
+    "title": "Entrena 3 caballeros",
+    "description": "Entrena tres caballeros poderosos y deja a tus enemigos comiendo polvo."
+  },
+  "217": {
+    "title": "Construye una herrería",
+    "description": "Construye una herrería para reducir los recursos necesarios para entrenar infantería, arqueros y tropas montadas. ¡Buenas noticias!"
+  },
+  "218": {
+    "title": "Construye 5 torres IV",
+    "description": "Construye cinco torres IV para mejorar las defensas de tu imperio. Colócalas estratégicamente para causar mucho daño a tus enemigos."
+  },
+  "219": {
+    "title": "Construye 10 muros V",
+    "description": "Construye diez muros V en la fila inferior izquierda de tu imperio para mejorar tus defensas."
+  },
+  "220": {
+    "title": "Construye una máquina meteorológica",
+    "description": "Construye una máquina meteorológica para cambiar el paisaje a tu gusto. ¡Pura magia!"
+  },
+  "221": {
+    "title": "Construye 2 campos de sandías",
+    "description": "Construye dos campos de sandías para producir más comida. ¡Comer fruta es muy saludable!"
+  },
+  "222": {
+    "title": "Mejora el ayuntamiento a nivel IV",
+    "description": "Mejora el ayuntamiento a nivel IV. Si tus aldeanos ya corrían rápido, ¡ahora casi volarán!"
+  },
+  "223": {
+    "title": "Construye un aserradero IV",
+    "description": "Construye un aserradero IV para producir más madera."
+  },
+  "224": {
+    "title": "Construye una taberna",
+    "description": "Construye una taberna y aumenta en diez unidades tu límite de población. ¡Quienes van a la taberna no necesitan casa!"
+  },
+  "225": {
+    "title": "¡Construye la academia de hechicería!",
+    "description": "Construye la academia de hechicería para lanzar hechizos. ¡El poder destructivo del libro de hechizos es inmenso! Lo verás en tu próxima sesión."
+  },
+  "226": {
+    "title": "Amplía tu imperio a 4 parcelas",
+    "description": "Amplía el territorio de tu imperio a cuatro parcelas y demuestra quién es el verdadero rey de Social Empires."
+  },
+  "227": {
+    "title": "¡Derrota al dragón!",
+    "description": "Visita la Isla del Nido (1 estrella) y derrota al dragón furioso. ¡Cuidado, es muy poderoso!"
+  },
+  "1008": {
+    "title": "¡Cuida el huevo de dragón!",
+    "description": "Haz clic en el Nido de cría de dragones y luego en ENTRAR, en el panel inferior. Después pulsa CUIDAR para atender el huevo."
+  },
+  "1": {
+    "title": "Construye un campo",
+    "description": "Un campo produce comida para tu imperio. Abre el menú CONSTRUIR y coloca uno cerca del ayuntamiento."
+  },
+  "92": {
+    "title": "Entrena 8 arqueros medianos",
+    "description": "Entrena ocho arqueros medianos... ¡el peligro es inminente!"
+  },
+  "183": {
+    "title": "Construye una arquería con establos",
+    "description": "Construye una arquería con establos para entrenar caballeros arqueros medianos."
+  }
+}

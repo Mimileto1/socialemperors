@@ -6,10 +6,25 @@ version_name = "alpha 0.04"
 version_code = "0.04a"
 
 def migrate_loaded_save(save: dict) -> bool:
+    # Add server-owned fields required by collections and temple progress.
+    private_state = save.setdefault("privateState", {})
+    defaults = {
+        "collections": [],
+        "collectionsCompleted": [],
+        "unitCollectionsCompleted": [],
+        "templeStep": [],
+        "templeUnit": 0,
+        "timeStampTemple": 0,
+    }
+    modified = False
+    for key, value in defaults.items():
+        if key not in private_state:
+            private_state[key] = value.copy() if isinstance(value, list) else value
+            modified = True
 
-    # discard current version saves
-    if save["version"] == version_code:
-        return False
+    # Only skip old migrations after checking current-version saves for new fields.
+    if save.get("version") == version_code:
+        return modified
     
     # fix 0.01a saves
     if "version" not in save or save["version"] is None:

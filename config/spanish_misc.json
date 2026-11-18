@@ -1,0 +1,900 @@
+{
+  "honor_levels": {
+    "1": "Campesino lancero",
+    "2": "Escudero del conde",
+    "3": "Cazatroles",
+    "4": "Caballero del barón",
+    "5": "Capitán del ejército del duque",
+    "6": "Protector del reino",
+    "7": "Protector de la ciudadela",
+    "8": "Comandante de lanceros",
+    "9": "Señor de los arqueros",
+    "10": "Maestro de guerra",
+    "11": "Maestro espadachín",
+    "12": "Jefe de caballería",
+    "13": "Gran señor de la estrategia",
+    "14": "Maestro de asedio",
+    "15": "Señor de guerra de élite del rey"
+  },
+  "neighbor_assists": [
+    {
+      "task": "¡Ayuda! ¡Unos troles atacan a mis aldeanos!",
+      "action": "Pulsa ACEPTAR para eliminar a los troles",
+      "notification": "te ayudó a eliminar a los troles"
+    },
+    {
+      "task": "¡Ayuda! ¡Mis luchadores enfermaron y los necesito para la batalla!",
+      "action": "Pulsa ACEPTAR para curar a los luchadores enfermos",
+      "notification": "te ayudó a curar a los luchadores enfermos"
+    },
+    {
+      "task": "¡Ayuda! ¡Una fuerte tormenta dañó mis casas!",
+      "action": "Pulsa ACEPTAR para reparar las casas dañadas",
+      "notification": "te ayudó a reparar las casas dañadas"
+    },
+    {
+      "task": "¡Ayuda! ¡Nos quedamos sin agua y mis aldeanos tienen sed!",
+      "action": "Pulsa ACEPTAR para llevarles agua",
+      "notification": "te llevó agua"
+    },
+    {
+      "task": "¡Ayuda! ¡Una niña aldeana se perdió y su madre no la encuentra!",
+      "action": "Pulsa ACEPTAR para encontrar a la niña",
+      "notification": "te ayudó a encontrar a la niña"
+    }
+  ],
+  "findable_items": {
+    "1": {
+      "title": "Payaso",
+      "description": "Encontraste un payaso triste en tu parque. ¡Compártelo con tus amigos para encontrarle un nuevo hogar!"
+    },
+    "2": {
+      "title": "Niño pequeño",
+      "description": "Un niño se perdió en tu parque. ¡Compártelo con tus amigos para encontrar a sus padres!"
+    },
+    "3": {
+      "title": "Niña pequeña",
+      "description": "Una niña se perdió en tu parque. ¡Compártelo con tus amigos para encontrar a sus padres!"
+    },
+    "4": {
+      "title": "Osito de peluche",
+      "description": "Encontraste un osito en tu parque. ¡Compártelo con tus amigos para encontrar a su dueño!"
+    },
+    "5": {
+      "title": "Cartera",
+      "description": "¡Alguien perdió su cartera! Comparte el hallazgo con tus amigos para encontrar a su dueño. ¡Recibirás una recompensa!"
+    },
+    "6": {
+      "title": "Bolso",
+      "description": "¡Una chica perdió su bolso en tu parque! Comparte el hallazgo para encontrar a su dueña. ¡Recibirás una recompensa!"
+    },
+    "7": {
+      "title": "Globo",
+      "description": "¡Un niño perdió su globo! ¡Ayúdalo a encontrarlo!"
+    },
+    "8": {
+      "title": "Llaves",
+      "description": "Un visitante perdió sus llaves. Comparte el hallazgo para encontrar a su dueño. ¡Recibirás una recompensa!"
+    },
+    "9": {
+      "title": "Gorra",
+      "description": "Un adolescente perdió su gorra. ¡Devuélvesela compartiendo el hallazgo con tus amigos!"
+    },
+    "10": {
+      "title": "Móvil",
+      "description": "Un hombre mayor perdió su móvil. ¡Comparte el hallazgo para encontrar a su dueño!"
+    }
+  },
+  "magics": {
+    "2": {
+      "name": "Incendio devastador",
+      "description": "Una tormenta de fuego azota el campo de batalla. Es más eficaz contra las unidades."
+    },
+    "3": {
+      "name": "Granizada definitiva",
+      "description": "Cientos de rocas caen del cielo. Es más eficaz contra los edificios."
+    },
+    "4": {
+      "name": "Escarcha mortal",
+      "description": "Las unidades quedan congeladas y no pueden moverse ni atacar durante un tiempo."
+    },
+    "5": {
+      "name": "Lluvia sagrada",
+      "description": "Una lluvia curativa restaura la salud de las unidades heridas."
+    },
+    "6": {
+      "name": "Furia del gólem",
+      "description": "Invoca a un poderoso gólem de piedra como aliado en el campo de batalla."
+    },
+    "7": {
+      "name": "Abismo infernal",
+      "description": "La tierra se abre y se traga para siempre a las unidades pequeñas y los edificios."
+    },
+    "8": {
+      "name": "Marea venenosa",
+      "description": "Una inundación venenosa infecta a las unidades y les causa daño con el tiempo. En niveles superiores también afecta a objetivos cercanos."
+    },
+    "9": {
+      "name": "Escudo de éter",
+      "description": "Un escudo de éter sólido absorbe parte del daño que reciben tus unidades."
+    },
+    "10": {
+      "name": "Rastro del yeti",
+      "description": "Invoca a un yeti abominable que causa estragos entre las unidades enemigas."
+    },
+    "11": {
+      "name": "Era del coloso",
+      "description": "Tus unidades aumentan de tamaño y causan más daño durante un tiempo."
+    },
+    "12": {
+      "name": "Invocar dragón",
+      "description": "Invoca a un poderoso dragón para ayudarte en la batalla."
+    },
+    "13": {
+      "name": "Límite instantáneo",
+      "description": "Llena al instante la barra de límite de tus unidades."
+    },
+    "14": {
+      "name": "Velocidad x2",
+      "description": "Duplica la velocidad de movimiento de tus unidades."
+    },
+    "15": {
+      "name": "Alcance x2",
+      "description": "Duplica el alcance de ataque de tus unidades."
+    },
+    "16": {
+      "name": "Agujero negro",
+      "description": "Se traga a los enemigos y los edificios durante cierto tiempo."
+    }
+  },
+  "social_items": {
+    "6": "Transportista,Triturador,Mecánico,Granjero,Ayudante,Supervisor",
+    "16": "Geólogo,Minero",
+    "18": "Cartógrafo,Geólogo,Ingeniero,Minero,Supervisor",
+    "23": "Carnicero,Pescadero,Frutero",
+    "24": "Obispo,Sacerdote,Monaguillo,Monja,Feligrés,Organista,Niño del coro,Niña del coro,Ayudante de velas,Ayudante de velas",
+    "49": "Ingeniero,Ayudante,Aprendiz,Fabricante de balas,Mezclador de pólvora,Transportista,Carpintero,Alquimista",
+    "50": "Ingeniero,Ayudante,Aprendiz,Fabricante de balas,Mezclador de pólvora,Transportista,Carpintero,Alquimista",
+    "185": "Veterinario,Entrenador,Aguador,Ayudante,Supervisor",
+    "189": "Carnicero,Pescadero,Frutero,Panadero,Frutero,Tendero,Ayudante de carnicero,Ayudante de pescadero,Ayudante de frutero,Ayudante de panadero,Ayudante de frutero,Ayudante de tendero",
+    "202": "Transportista,Triturador,Mecánico",
+    "212": "Obispo,Sacerdote,Monaguillo,Monja,Feligrés,Organista,Niño del coro,Niña del coro,Ayudante de velas,Ayudante de velas,Prayer boy,Prayer girl",
+    "216": "Ingeniero,Ayudante,Aprendiz,Fabricante de balas,Mezclador de pólvora,Transportista,Carpintero,Alquimista,Supervisor,Boss",
+    "224": "Capitán,Grumete,Timonel",
+    "234": "1st Ally,2nd aliado,3rd Ally,4th aliado,5th aliado,6th aliado,7th aliado,8th aliado,9th aliado",
+    "266": "+125,+125,+125,+125,+125,+125,+125,+125",
+    "299": "Capitán,Grumete,Timonel,Aprendiz,Supervisor,Ingeniero,Cocinero,Patrón,Viajero,Polizón",
+    "301": "Transportista,Triturador,Mecánico,Granjero,Ayudante,Supervisor",
+    "318": "Cartógrafo,Geólogo,Ingeniero,Minero",
+    "320": "Cartógrafo,Geólogo,Ingeniero,Minero,Supervisor",
+    "335": "Carnicero,Pescadero,Frutero",
+    "337": "Ingeniero,Ayudante,Aprendiz,Fabricante de balas,Mezclador de pólvora,Transportista,Carpintero,Alquimista",
+    "338": "Ingeniero,Ayudante,Aprendiz,Fabricante de balas,Mezclador de pólvora,Transportista,Carpintero,Alquimista",
+    "343": "Capitán,Grumete,Timonel,Contramaestre,Marinero,Ingeniero,Cocinero,Patrón,Viajero,Polizón",
+    "344": "Capitán,Grumete,Timonel,Aprendiz,Supervisor,Ingeniero,Cocinero,Patrón,Viajero,Polizón,Ingeniero,Ayudante",
+    "346": "Carnicero,Pescadero,Frutero,Panadero,Frutero,Tendero,Ayudante de carnicero,Ayudante de pescadero,Ayudante de frutero,Ayudante de panadero,Ayudante de frutero,Ayudante de tendero",
+    "349": "Veterinario,Entrenador,Aguador,Ayudante,Supervisor",
+    "352": "+125,+125,+125,+125,+125,+125,+125,+125",
+    "362": "Chamán,Vidente,Monaguillo,Monaguilla,Devoto,Devota,Lector de cartas,Muñeco vudú,Ayudante del incienso,Ayudante del incienso",
+    "387": "Nuevo recluta,Nuevo recluta,Nuevo recluta",
+    "389": "1,2,3,4,5,6,7,8",
+    "470": "Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta,Nuevo recluta"
+  },
+  "iphone_goals": [
+    {
+      "name": "Completa la aventura Dios Anubis",
+      "goalDescription": "Completa esta aventura en el puerto de Arenas Perdidas para obtener recursos y nuevas unidades.",
+      "title": "Completaste"
+    },
+    {
+      "name": "Ataca a 2 jugadores y vence",
+      "goalDescription": "Ataca a 2 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Completa la aventura los hicsos",
+      "goalDescription": "Completa esta aventura en el puerto de Arenas Perdidas para obtener recursos y nuevas unidades.",
+      "title": "Completaste"
+    },
+    {
+      "name": "Completa la aventura Neptuno",
+      "goalDescription": "Completa esta aventura en el puerto de Arenas Perdidas para obtener recursos y nuevas unidades.",
+      "title": "Completaste"
+    },
+    {
+      "name": "Construye Arquería I",
+      "goalDescription": "Construye Arquería I. Te permitirá entrenar Arquero ligero.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 5 Arquero ligeros",
+      "goalDescription": "Entrena 5 Arquero ligeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Completa la aventura el despreciable Ra",
+      "goalDescription": "Completa esta aventura en el puerto de Arenas Perdidas para obtener recursos y nuevas unidades.",
+      "title": "Completaste"
+    },
+    {
+      "name": "Ataca a 3 jugadores y vence",
+      "goalDescription": "Ataca a 3 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Molino I",
+      "goalDescription": "Construye Molino I. Te proporcionará alimentos. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Elige el tiempo de producción de Molino I",
+      "goalDescription": "Elige el tiempo de trabajo de Molino I para comenzar la producción.",
+      "title": ""
+    },
+    {
+      "name": "Construye Mina de oro I",
+      "goalDescription": "Construye Mina de oro I. Te proporcionará oro. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Elige el tiempo de producción de Mina de oro I",
+      "goalDescription": "Elige el tiempo de trabajo de Mina de oro I para comenzar la producción.",
+      "title": ""
+    },
+    {
+      "name": "Construye Establos I",
+      "goalDescription": "Construye Establos I. Te permitirá entrenar Ligero Caballero.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 5 Ligero Caballeros",
+      "goalDescription": "Entrena 5 Ligero Caballeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Completa la aventura la Esfinge",
+      "goalDescription": "Completa esta aventura en el puerto de Arenas Perdidas para obtener recursos y nuevas unidades.",
+      "title": "Completaste"
+    },
+    {
+      "name": "Ataca a 3 jugadores y vence",
+      "goalDescription": "Ataca a 3 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Recolecta oro de Mina de oro I",
+      "goalDescription": "Recolecta oro de Mina de oro I.",
+      "title": ""
+    },
+    {
+      "name": "Construye Aserradero I",
+      "goalDescription": "Construye Aserradero I. Te proporcionará madera. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Mina de piedra I",
+      "goalDescription": "Construye Mina de piedra I. Te proporcionará piedra. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Ayuntamiento I",
+      "goalDescription": "Construye Ayuntamiento I y aumentará tus ataques en el modo Batallas de 3 a 5.",
+      "title": ""
+    },
+    {
+      "name": "Construye Taller I",
+      "goalDescription": "Construye Taller I. Te permitirá entrenar Ariete.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 3 Arietes",
+      "goalDescription": "Entrena 3 Arietes. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Ataca a 5 jugadores y vence",
+      "goalDescription": "Ataca a 5 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Completa la aventura Gran Pirámide",
+      "goalDescription": "Completa esta aventura en el puerto de Arenas Perdidas para obtener recursos y nuevas unidades.",
+      "title": "Completaste"
+    },
+    {
+      "name": "Construye Cuartel II",
+      "goalDescription": "Construye Cuartel II. Te permitirá entrenar Swordsmen.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 5 Espadachíns",
+      "goalDescription": "Entrena 5 Espadachíns. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Invita a tus amigos",
+      "goalDescription": "Invita a tus amigos a Social Empires para móviles mediante Facebook. ¡Cuantos más amigos, más diversión!",
+      "title": ""
+    },
+    {
+      "name": "Construye Granja de gallinas",
+      "goalDescription": "Construye Granja de gallinas. Te proporcionará alimentos. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Recolecta recursos 4 veces",
+      "goalDescription": "Recolecta cualquiera de tus recursos 4 veces.",
+      "title": "Recolectaste"
+    },
+    {
+      "name": "Aumenta el tamaño de tu ejército a 5",
+      "goalDescription": "Un ejército más grande mejora tus posibilidades de vencer en batalla o defenderte. Aumenta el tamaño de tu ejército a 5.",
+      "title": "Ejército actual"
+    },
+    {
+      "name": "Completa la aventura Ritual del sacrificio",
+      "goalDescription": "Completa esta aventura en el puerto de Arenas Perdidas para obtener recursos y nuevas unidades.",
+      "title": "Completaste"
+    },
+    {
+      "name": "Ataca a 6 jugadores y vence",
+      "goalDescription": "Ataca a 6 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Califica la aplicación",
+      "goalDescription": "¡Danos tu opinión y califica Social Empires para móviles!",
+      "title": ""
+    },
+    {
+      "name": "Construye Arquería II",
+      "goalDescription": "Construye Arquería II. Te permitirá entrenar Medium Arquero.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 5 Medium Arqueros",
+      "goalDescription": "Entrena 5 Medium Arqueros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Embajada I",
+      "goalDescription": "Construye Embajada I y aumentará tu energía en Aventuras de 200 a 250.",
+      "title": ""
+    },
+    {
+      "name": "Construye Muralla de madera",
+      "goalDescription": "Construye Muralla de madera.",
+      "title": ""
+    },
+    {
+      "name": "Completa todas las aventuras de Arenas Perdidas",
+      "goalDescription": "Completa todas las aventuras de Arenas Perdidas y alcanza el rango 2.",
+      "title": "Aventuras completadas"
+    },
+    {
+      "name": "Construye Puerto I",
+      "goalDescription": "Construye Puerto I. Desbloqueará Britania y te permitirá jugar más aventuras.",
+      "title": ""
+    },
+    {
+      "name": "Construye Molino II",
+      "goalDescription": "Construye Molino II. Te proporcionará alimentos. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Ataca a 7 jugadores y vence",
+      "goalDescription": "Ataca a 7 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Salón de héroes",
+      "goalDescription": "Construye Salón de héroes. Te permitirá obtener héroes especiales.",
+      "title": ""
+    },
+    {
+      "name": "Construye Establos II",
+      "goalDescription": "Construye Establos II. Te permitirá entrenar Medium Caballero.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 5 Medium Caballeros",
+      "goalDescription": "Entrena 5 Medium Caballeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Herrería I",
+      "goalDescription": "Construye Herrería I. Aumentará el daño de ataque un 5% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Ayuntamiento II",
+      "goalDescription": "Construye Ayuntamiento II y aumentará tus ataques en el modo Batallas de 5 a 7.",
+      "title": ""
+    },
+    {
+      "name": "Construye Mina de oro II",
+      "goalDescription": "Construye Mina de oro II. Te proporcionará oro. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Ataca a 8 jugadores y vence",
+      "goalDescription": "Ataca a 8 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Mejora tu muralla a Reenforced Muro",
+      "goalDescription": "Mejora la muralla de tu imperio a Reenforced Muro para protegerlo mejor.",
+      "title": ""
+    },
+    {
+      "name": "Construye Universidad I",
+      "goalDescription": "Construye Universidad I. Aumentará la defensa un 5% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Taller II",
+      "goalDescription": "Construye Taller II. Te permitirá entrenar Scorpions.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 10 Escorpións",
+      "goalDescription": "Entrena 10 Escorpións. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Aumenta el tamaño de tu ejército a 80",
+      "goalDescription": "Un ejército más grande mejora tus posibilidades de vencer en batalla o defenderte. Aumenta el tamaño de tu ejército a 80.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Completa todas las aventuras de Britania",
+      "goalDescription": "Completa todas las aventuras de Britania y alcanza el rango 2.",
+      "title": "Aventuras completadas"
+    },
+    {
+      "name": "Construye Aserradero II",
+      "goalDescription": "Construye Aserradero II. Te proporcionará madera. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Ataca a 10 jugadores y vence",
+      "goalDescription": "Ataca a 10 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Granja de cerdos",
+      "goalDescription": "Construye Granja de cerdos. Te proporcionará alimentos. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Embajada II",
+      "goalDescription": "Construye Embajada II y aumentará tu energía en Aventuras de 250 a 300.",
+      "title": ""
+    },
+    {
+      "name": "Construye Cuartel III",
+      "goalDescription": "Construye Cuartel III. Te permitirá entrenar Long Swordsmen.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 5 Espadachín de hoja largas",
+      "goalDescription": "Entrena 5 Espadachín de hoja largas. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Mina de piedra II",
+      "goalDescription": "Construye Mina de piedra II. Te proporcionará piedra. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Mejora tu muralla a Piedra Muro",
+      "goalDescription": "Mejora la muralla de tu imperio a Piedra Muro para protegerlo mejor.",
+      "title": ""
+    },
+    {
+      "name": "Ataca a 12 jugadores y vence",
+      "goalDescription": "Ataca a 12 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Arquería III",
+      "goalDescription": "Construye Arquería III. Te permitirá entrenar Arquero pesado.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 10 Arquero pesados",
+      "goalDescription": "Entrena 10 Arquero pesados. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Puerto II",
+      "goalDescription": "Construye Puerto II. Desbloqueará Reino del Norte y te permitirá jugar más aventuras.",
+      "title": ""
+    },
+    {
+      "name": "Construye Herrería II",
+      "goalDescription": "Construye Herrería II. Aumentará el daño de ataque un 15% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Establos III",
+      "goalDescription": "Construye Establos III. Te permitirá entrenar Pesado Caballero.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 15 Pesado Caballeros",
+      "goalDescription": "Entrena 15 Pesado Caballeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Ataca a 14 jugadores y vence",
+      "goalDescription": "Ataca a 14 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Castillo magnífico",
+      "goalDescription": "Construye Castillo magnífico. Las estructuras defensivas protegen tu base de los ataques enemigos.",
+      "title": ""
+    },
+    {
+      "name": "Construye Granja de bueyes",
+      "goalDescription": "Construye Granja de bueyes. Te proporcionará alimentos. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Aumenta el tamaño de tu ejército a 10",
+      "goalDescription": "Un ejército más grande mejora tus posibilidades de vencer en batalla o defenderte. Aumenta el tamaño de tu ejército a 10.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Universidad II",
+      "goalDescription": "Construye Universidad II. Aumentará la defensa un 15% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Taller III",
+      "goalDescription": "Construye Taller III. Te permitirá entrenar Catapults.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 10 Catapultas",
+      "goalDescription": "Entrena 10 Catapultas. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Ayuntamiento III",
+      "goalDescription": "Construye Ayuntamiento III y aumentará tus ataques en el modo Batallas de 7 a 9.",
+      "title": ""
+    },
+    {
+      "name": "Ataca a 16 jugadores y vence",
+      "goalDescription": "Ataca a 16 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Completa todas las aventuras de Reino del Norte",
+      "goalDescription": "Completa todas las aventuras de Reino del Norte y alcanza el rango 2.",
+      "title": "Aventuras completadas"
+    },
+    {
+      "name": "Construye Molino III",
+      "goalDescription": "Construye Molino III. Te proporcionará alimentos. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Elige el tiempo de producción de Molino III",
+      "goalDescription": "Elige el tiempo de trabajo de Molino III para comenzar la producción.",
+      "title": ""
+    },
+    {
+      "name": "Construye Torre IV",
+      "goalDescription": "Construye Torre IV para proteger mejor tu imperio.",
+      "title": "Construiste"
+    },
+    {
+      "name": "Construye Mina de oro III",
+      "goalDescription": "Construye Mina de oro III. Te proporcionará oro. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Establos de arquería",
+      "goalDescription": "Construye Establos de arquería. Te permitirá entrenar Medium Arquero Caballero.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 10 Medium Arquero Caballeros",
+      "goalDescription": "Entrena 10 Medium Arquero Caballeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Ataca a 18 jugadores y vence",
+      "goalDescription": "Ataca a 18 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Castillo del mago",
+      "goalDescription": "Construye Castillo del mago. Las estructuras defensivas protegen tu base de los ataques enemigos.",
+      "title": ""
+    },
+    {
+      "name": "Mejora tu muralla a Muralla de acero",
+      "goalDescription": "Mejora la muralla de tu imperio a Muralla de acero para protegerlo mejor.",
+      "title": ""
+    },
+    {
+      "name": "Construye Taller IV",
+      "goalDescription": "Construye Taller IV. Te permitirá entrenar Cannons.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 15 Cañóns",
+      "goalDescription": "Entrena 15 Cañóns. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Embajada III",
+      "goalDescription": "Construye Embajada III y aumentará tu energía en Aventuras de 300 a 350.",
+      "title": ""
+    },
+    {
+      "name": "Construye Aserradero III",
+      "goalDescription": "Construye Aserradero III. Te proporcionará madera. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Aumenta el tamaño de tu ejército a 10",
+      "goalDescription": "Un ejército más grande mejora tus posibilidades de vencer en batalla o defenderte. Aumenta el tamaño de tu ejército a 10.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Puerto III",
+      "goalDescription": "Construye Puerto III. Desbloqueará Guerra Oriental y te permitirá jugar más aventuras.",
+      "title": ""
+    },
+    {
+      "name": "Construye Cuartel IV",
+      "goalDescription": "Construye Cuartel IV. Te permitirá entrenar Powerful Swordsmen.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 25 Powerful Espadachíns",
+      "goalDescription": "Entrena 25 Powerful Espadachíns. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Herrería III",
+      "goalDescription": "Construye Herrería III. Aumentará el daño de ataque un 20% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Mina de piedra III",
+      "goalDescription": "Construye Mina de piedra III. Te proporcionará piedra. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Arquería IV",
+      "goalDescription": "Construye Arquería IV. Te permitirá entrenar Powerful Archers.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 20 Powerful Arqueros",
+      "goalDescription": "Entrena 20 Powerful Arqueros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Ataca a 20 jugadores y vence",
+      "goalDescription": "Ataca a 20 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Universidad III",
+      "goalDescription": "Construye Universidad III. Aumentará la defensa un 20% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Taller de fuego",
+      "goalDescription": "Construye Taller de fuego. Te permitirá entrenar Fire Cannons.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 15 Fuego Cañóns",
+      "goalDescription": "Entrena 15 Fuego Cañóns. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Completa todas las aventuras de Guerra Oriental",
+      "goalDescription": "Completa todas las aventuras de Guerra Oriental y alcanza el rango 2.",
+      "title": "Aventuras completadas"
+    },
+    {
+      "name": "Construye Ayuntamiento IV",
+      "goalDescription": "Construye Ayuntamiento IV y aumentará tus ataques en el modo Batallas de 9 a 12.",
+      "title": ""
+    },
+    {
+      "name": "Construye Establos IV",
+      "goalDescription": "Construye Establos IV. Te permitirá entrenar Powerful Caballero.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 25 Powerful Caballeros",
+      "goalDescription": "Entrena 25 Powerful Caballeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Molino IV",
+      "goalDescription": "Construye Molino IV. Te proporcionará alimentos. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Embajada IV",
+      "goalDescription": "Construye Embajada IV y aumentará tu energía en Aventuras de 350 a 400.",
+      "title": ""
+    },
+    {
+      "name": "Ataca a 22 jugadores y vence",
+      "goalDescription": "Ataca a 22 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Mejora tu muralla a Muralla real",
+      "goalDescription": "Mejora la muralla de tu imperio a Muralla real para protegerlo mejor.",
+      "title": ""
+    },
+    {
+      "name": "Construye Cuartel de elefantes",
+      "goalDescription": "Construye Cuartel de elefantes. Te permitirá entrenar Elephant Riders.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 15 Elephant Jinetes",
+      "goalDescription": "Entrena 15 Elephant Jinetes. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Aserradero IV",
+      "goalDescription": "Construye Aserradero IV. Te proporcionará madera. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Castillo legendario",
+      "goalDescription": "Construye Castillo legendario. Las estructuras defensivas protegen tu base de los ataques enemigos.",
+      "title": ""
+    },
+    {
+      "name": "Construye Cuartel de ninjas",
+      "goalDescription": "Construye Cuartel de ninjas. Te permitirá entrenar Black Ninjas.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 20 Negro Ninjas",
+      "goalDescription": "Entrena 20 Negro Ninjas. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Puerto IV",
+      "goalDescription": "Construye Puerto IV. Desbloqueará Antigua Grecia y te permitirá jugar más aventuras.",
+      "title": ""
+    },
+    {
+      "name": "Construye Cuartel V",
+      "goalDescription": "Construye Cuartel V. Te permitirá entrenar Royal Swordsmen.",
+      "title": ""
+    },
+    {
+      "name": "Aumenta el tamaño de tu ejército a 10",
+      "goalDescription": "Un ejército más grande mejora tus posibilidades de vencer en batalla o defenderte. Aumenta el tamaño de tu ejército a 10.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Entrena 25 Real Espadachíns",
+      "goalDescription": "Entrena 25 Real Espadachíns. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Ataca a 24 jugadores y vence",
+      "goalDescription": "Ataca a 24 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Herrería IV",
+      "goalDescription": "Construye Herrería IV. Aumentará el daño de ataque un 25% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Mina de oro IV",
+      "goalDescription": "Construye Mina de oro IV. Te proporcionará oro. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Universidad IV",
+      "goalDescription": "Construye Universidad IV. Aumentará la defensa un 25% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Cuartel de troles",
+      "goalDescription": "Construye Cuartel de troles. Te permitirá entrenar Troll Archers.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 20 Arquero trols",
+      "goalDescription": "Entrena 20 Arquero trols. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Cuartel de caballeros alados",
+      "goalDescription": "Construye Cuartel de caballeros alados. Te permitirá entrenar Winged Knights.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 20 Winged Caballeros",
+      "goalDescription": "Entrena 20 Winged Caballeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Completa todas las aventuras de Antigua Grecia",
+      "goalDescription": "Completa todas las aventuras de Antigua Grecia y alcanza el rango 2.",
+      "title": "Aventuras completadas"
+    },
+    {
+      "name": "Construye Mina de piedra IV",
+      "goalDescription": "Construye Mina de piedra IV. Te proporcionará piedra. Los recursos te ayudarán a progresar más rápido.",
+      "title": ""
+    },
+    {
+      "name": "Construye Arquería V",
+      "goalDescription": "Construye Arquería V. Te permitirá entrenar Royal Archers.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 25 Real Arqueros",
+      "goalDescription": "Entrena 25 Real Arqueros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Ataca a 30 jugadores y vence",
+      "goalDescription": "Ataca a 30 jugadores y vence en la batalla para obtener recursos y experiencia.",
+      "title": "Ataque realizado"
+    },
+    {
+      "name": "Construye Ayuntamiento V",
+      "goalDescription": "Construye Ayuntamiento V y aumentará tus ataques en el modo Batallas de 12 a 15.",
+      "title": ""
+    },
+    {
+      "name": "Construye Puerto V",
+      "goalDescription": "Construye Puerto V. Desbloqueará Montaña y te permitirá jugar más aventuras.",
+      "title": ""
+    },
+    {
+      "name": "Construye Herrería V",
+      "goalDescription": "Construye Herrería V. Aumentará el daño de ataque un 30% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Construye Establos V",
+      "goalDescription": "Construye Establos V. Te permitirá entrenar Royal Knights.",
+      "title": ""
+    },
+    {
+      "name": "Entrena 25 Real Caballeros",
+      "goalDescription": "Entrena 25 Real Caballeros. Cuantas más unidades entrenes, más poderoso será tu ejército.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Aumenta el tamaño de tu ejército a 10",
+      "goalDescription": "Un ejército más grande mejora tus posibilidades de vencer en batalla o defenderte. Aumenta el tamaño de tu ejército a 10.",
+      "title": "Entrenaste"
+    },
+    {
+      "name": "Construye Universidad V",
+      "goalDescription": "Construye Universidad V. Aumentará la defensa un 30% por nivel de mejora.",
+      "title": ""
+    },
+    {
+      "name": "Completa todas las aventuras de Montaña",
+      "goalDescription": "Completa todas las aventuras de Montaña y alcanza el rango 2.",
+      "title": "Aventuras completadas"
+    }
+  ]
+}
