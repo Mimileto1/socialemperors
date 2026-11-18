@@ -1,7 +1,12 @@
 print (" [+] Loading basics...")
 import os
 import json
-import urllib
+import http.client
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+from urllib.error import URLError
+from urllib.parse import quote
+from urllib.request import urlopen
 if os.name == 'nt':
     os.system("color")
     os.system("title Social Empires Server")
@@ -29,6 +34,8 @@ from engine import timestamp_now
 from version import version_name
 from constants import Constant
 from quests import get_quest_map
+from werkzeug.security import safe_join
+from asset_cdn import asset_redirect
 from bundle import ASSETS_DIR, STUB_DIR, TEMPLATES_DIR, BASE_DIR, DATA_DIR
 
 host = '0.0.0.0' if os.environ.get('PORT') else '127.0.0.1'
@@ -99,45 +106,46 @@ def css(path):
 
 @app.route("/default01.static.socialpointgames.com/static/socialempires/swf/05122012_projectiles.swf")
 def similar_05122012_projectiles():
-    return send_from_directory(ASSETS_DIR + "/swf", "20130417_projectiles.swf")
+    return send_from_directory(ASSETS_DIR + "/swf", "20130417_projectiles.swf", max_age=86400)
 
 @app.route("/default01.static.socialpointgames.com/static/socialempires/swf/05122012_magicParticles.swf")
 def similar_05122012_magicParticles():
-    return send_from_directory(ASSETS_DIR + "/swf", "20131010_magicParticles.swf")
+    return send_from_directory(ASSETS_DIR + "/swf", "20131010_magicParticles.swf", max_age=86400)
 
 @app.route("/default01.static.socialpointgames.com/static/socialempires/swf/05122012_dynamic.swf")
 def similar_05122012_dynamic():
-    return send_from_directory(ASSETS_DIR + "/swf", "120608_dynamic.swf")
+    return send_from_directory(ASSETS_DIR + "/swf", "120608_dynamic.swf", max_age=86400)
 
 @app.route("/default01.static.socialpointgames.com/static/socialempires/<path:path>")
 def static_assets_loader(path):
-    # return send_from_directory(ASSETS_DIR, path)
-    if not os.path.exists(ASSETS_DIR + "/"+ path):
-        # File does not exists in provided assets
-        if not os.path.exists(f"{BASE_DIR}/download_assets/assets/{path}"):
-            # Download file from SP's CDN if it doesn't exist
+    cdn = asset_redirect(path)
+    if cdn is not None:
+        return cdn
 
-            # Make directory
-            directory = os.path.dirname(f"{BASE_DIR}/download_assets/assets/{path}")
-            if not os.path.exists(directory):
-                os.makedirs(directory)
+    bundled = safe_join(ASSETS_DIR, path)
+    if bundled is None:
+        abort(404)
+    if os.path.isfile(bundled):
+        return send_from_directory(ASSETS_DIR, path, max_age=86400)
 
-            # Download File
-            URL = f"https://static.socialpointgames.com/static/socialempires/assets/{path}"
-            try:
-                response = urllib.request.urlretrieve(URL, f"{BASE_DIR}/download_assets/assets/{path}")
-            except urllib.error.HTTPError:
-                return ("", 404)
-
-            print(f"====== DOWNLOADED ASSET: {URL}")
-            return send_from_directory("{BASE_DIR}/download_assets/assets", path)
-        else:
-            # Use downloaded CDN asset
-            print(f"====== USING EXTERNAL: download_assets/assets/{path}")
-            return send_from_directory("{BASE_DIR}/download_assets/assets", path)
-    else:
-        # Use provided asset
-        return send_from_directory(ASSETS_DIR, path)
+    downloads = Path(BASE_DIR) / "download_assets" / "assets"
+    cached = Path(safe_join(str(downloads), path))
+    if not cached.is_file():
+        url = "https://static.socialpointgames.com/static/socialempires/assets/" + quote(path, safe="/")
+        try:
+            with urlopen(url, timeout=5) as response:
+                data = response.read()
+        except (URLError, TimeoutError, http.client.HTTPException):
+            abort(404)
+        cached.parent.mkdir(parents=True, exist_ok=True)
+        with NamedTemporaryFile(dir=cached.parent, delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(data)
+        try:
+            temporary.replace(cached)
+        finally:
+            temporary.unlink(missing_ok=True)
+    return send_from_directory(downloads, path, max_age=86400)
 
 ## GAME DYNAMIC
 
