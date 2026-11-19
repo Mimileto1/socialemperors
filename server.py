@@ -274,7 +274,7 @@ def get_continent_ranking_response():
     response = {
         "world_id": 0,
         "continent": [
-            {"posicion": 0, "nivel": 1, "user_id": 1111}, # villages/AcidCaos
+            {"posicion": 0, "nivel": 0},
             {"posicion": 1, "nivel": 0},
             {"posicion": 2, "nivel": 0},
             {"posicion": 3, "nivel": 0},

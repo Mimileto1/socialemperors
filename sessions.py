@@ -58,7 +58,7 @@ def load_saved_villages():
         exit(1)
     # Static neighbors in /villages
     for file in os.listdir(VILLAGES_DIR):
-        if file == "initial.json" or not file.endswith(".json"):
+        if file in {"initial.json", "AcidCaos.json"} or not file.endswith(".json"):
             continue
         print(f" * Loading static neighbour {file}... ", end='')
         village = json.load(open(os.path.join(VILLAGES_DIR, file)))
@@ -166,8 +166,6 @@ def neighbor_session(USERID: str) -> dict:
         return __villages[USERID]
 
 def fb_friends_str(USERID: str) -> list:
-    DELETE_ME = [{"uid": "1111", "pic_square":"img/profile/Paladin_Justiciero.jpg"},
-        {"uid": "aa_002", "pic_square":"/1025.png"}]
     friends = []
     # static villages
     for key in __villages:

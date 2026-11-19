@@ -18,13 +18,17 @@ def get_player_info(USERID):
     return player_info
 
 def get_neighbor_info(userid, map_number):
+    village = neighbor_session(userid)
+    index = 0 if map_number is None else map_number
+    if not village or not 0 <= index < len(village["maps"]):
+        return ""
     neighbor_info = {
         "result": "ok",
         "processed_errors": 0,
         "timestamp": timestamp_now(),
-        "playerInfo": neighbor_session(userid)["playerInfo"],
-        "map": neighbor_session(userid)["maps"][map_number],
-        "privateState": {} if session(userid) is not None else neighbor_session(userid)["privateState"],
+        "playerInfo": village["playerInfo"],
+        "map": village["maps"][index],
+        "privateState": {} if session(userid) is not None else village["privateState"],
         "neighbors": neighbors(userid)
     }
     return neighbor_info
