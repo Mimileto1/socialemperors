@@ -51,7 +51,7 @@ print (" [+] Configuring server routes...")
 
 ## PAGES AND RESOURCES
 
-current_save, protect_payload, game_lock = install_accounts(
+current_save, protect_payload, game_lock, accepted_neighbors = install_accounts(
     app, data_dir=DATA_DIR, slug="social-empires", title="Social Empires", theme="empires",
     play="/ruffle.html", create_save=lambda username: new_village(), legacy_accounts=legacy_accounts if legacy_accounts.enabled() else None, save_exists=lambda value: value in all_saves_userid(),
 )
@@ -84,7 +84,7 @@ def play():
             abort(503, "La partida vinculada no está disponible.")
         return render_template(
             "ruffle.html", save_info=save_info(user_id), serverTime=timestamp_now(),
-            friendsInfo=fb_friends_str(user_id), version=version_name,
+            friendsInfo=fb_friends_str(user_id, accepted_neighbors()), version=version_name,
             GAMEVERSION="SocialEmpires0926bsec.swf", SERVERIP=host, SERVERPORT=port,
         )
 
@@ -185,9 +185,12 @@ def get_player_info_response():
 
     print(f"get_player_info: USERID: {USERID}. user: {user} --")
 
+    if user is not None and user != USERID and user in all_saves_userid() and user not in accepted_neighbors():
+        return ("", 200)
+
     # Current Player
     if user is None:
-        return (get_player_info(USERID), 200)
+        return (get_player_info(USERID, accepted_neighbors()), 200)
     # Arthur
     elif user == Constant.NEIGHBOUR_ARTHUR_GUINEVERE_1 \
     or user == Constant.NEIGHBOUR_ARTHUR_GUINEVERE_2 \
