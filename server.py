@@ -19,7 +19,7 @@ from get_game_config import get_game_config, patch_game_config
 
 print (" [+] Loading players...")
 from get_player_info import get_player_info, get_neighbor_info
-from sessions import load_saved_villages, all_saves_userid, save_info, new_village, fb_friends_str
+from sessions import load_saved_villages, all_saves_userid, save_info, new_village, fb_friends_str, session as village_session
 import accounts as legacy_accounts
 import db as _db
 _db.pull_villages()
@@ -51,7 +51,8 @@ print (" [+] Configuring server routes...")
 
 ## PAGES AND RESOURCES
 
-current_save, protect_payload, game_lock, accepted_neighbors = install_accounts(
+(current_save, protect_payload, game_lock, accepted_neighbors,
+ deliver_neighbor_pieces) = install_accounts(
     app, data_dir=DATA_DIR, slug="social-empires", title="Social Empires", theme="empires",
     play="/ruffle.html", create_save=lambda username: new_village(), legacy_accounts=legacy_accounts if legacy_accounts.enabled() else None, save_exists=lambda value: value in all_saves_userid(),
 )
@@ -82,6 +83,7 @@ def play():
     with game_lock:
         if user_id not in all_saves_userid():
             abort(503, "La partida vinculada no está disponible.")
+        deliver_neighbor_pieces(f"{user_id}.save.json", village_session(user_id), "saves")
         return render_template(
             "ruffle.html", save_info=save_info(user_id), serverTime=timestamp_now(),
             friendsInfo=fb_friends_str(user_id, accepted_neighbors()), version=version_name,
