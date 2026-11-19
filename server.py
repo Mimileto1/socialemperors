@@ -95,7 +95,7 @@ def crossdomain():
 
 @app.route("/img/<path:path>")
 def images(path):
-    return send_from_directory(TEMPLATES_DIR + "/img", path)
+    return send_from_directory(TEMPLATES_DIR + "/img", path, max_age=86400)
 
 @app.route("/css/<path:path>")
 def css(path):
